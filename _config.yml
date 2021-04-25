@@ -1,0 +1,8 @@
+title: "Mine in Abyss Wiki"
+
+remote_theme: pmarsceill/just-the-docs
+#color_scheme: "dark"
+search_enabled: true
+
+# Enable support for hyphenated search words:
+search_tokenizer_separator: /[\s/]+/
