@@ -9,7 +9,7 @@ nav_order: 0
 
 Currently, we only support PaperMC (because of useful events for keeping track of all entities), but the plan is to expand to more JVM server platforms once things settle more.
 
-Geary's main goal for Minecraft is to act as a link between existing concepts in the server and its own ECS entities. Sometimes this behaviour is complex enough to be moved into its own project (see [Other Plugins](#Other plugins).)
+Geary's main goal for Minecraft is to act as a link between existing concepts in the server and its own ECS entities. Sometimes this behaviour is complex enough to be moved into its own project (see [Other Plugins](#other-plugins).)
 
 We want to encourage using Geary alongside existing server APIs. For example, using familiar classes from that API, or integration with existing events.
 
