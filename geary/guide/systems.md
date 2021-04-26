@@ -1,9 +1,11 @@
 ---
-title: Serialization
+title: Systems
 parent: Guide
 grand_parent: Geary
 nav_order: 3
 ---
+
+# Systems
 
 Systems iterate over `families` of components. Essentially, they make a query for all entities that match a certain description regarding the data they must hold. 
 
