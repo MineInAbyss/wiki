@@ -54,7 +54,7 @@ We specify an extension property `GearyEntity.location`. The extension is needed
 
 Finally, to check whether a condition was met for an entity, we instantiate this class and call the `metFor(entity: GearyEntity)` function:
 
-```
+```kotlin
 LightCondition(5..10).metFor(entity)
 ```
 

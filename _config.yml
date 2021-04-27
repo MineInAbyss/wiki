@@ -1,5 +1,7 @@
 title: "Mine in Abyss Wiki"
 url: "https://wiki.mineinabyss.com"
+logo: "/assets/logo.png"
+color_scheme: mineinabyss
 
 remote_theme: pmarsceill/just-the-docs
 #color_scheme: "dark"

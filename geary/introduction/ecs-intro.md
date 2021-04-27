@@ -5,16 +5,24 @@ grand_parent: Geary
 nav_order: 1
 ---
 
-# What is an Entity Component System?
+# What is an Entity Component System (ECS)?
 
-Please read, [Understanding Component-Entity-Systems](https://www.gamedev.net/tutorials/_/technical/game-programming/understanding-component-entity-systems-r3013/), an excellent article outlining basic concepts of an Entity Components System.
+If you've coded a bit, consider reading, [Understanding Component-Entity-Systems](https://www.gamedev.net/tutorials/_/technical/game-programming/understanding-component-entity-systems-r3013/), an excellent article outlining basic concepts of an Entity Component System.
 
-# Features specific to us
+If not, here's a quick summary of the three main parts of an Entity Component System:
 
-The engine backend is inspired heavily by [flecs](https://github.com/SanderMertens/flecs/). You can read more about its design in the [backend](../backend) section.
+## Components
 
-As an end user, most of the technical details might not be too important to you however, so here's a quick outline.
+Components store some information. For example, a `Location` component might store x, y, z coordinates. 
 
-## Serializable components
+Some components can be configured in a text file. Converting a component to and from this text file is called serialization.
 
-We make it easy to create serializable components with the help of kotlinx.serialization. For more info see [Serialization](/geary/guide/serialization).
+## Entities
+
+An entity is a *thing* which just holds several components. For example, an entity might be a monster in a game which might have `Location`, `Health`, or `Sprite` components.
+
+## Systems
+
+Systems run code on entities with specific components. For example, a `PhysicsSystem` might look for all entities with a `Position` and `Velocity`, and adjust the position based on velocity.
+
+These are never configurable themselves, only the components may be. Because of this, if you are only planning on creating entities in a config, you will essentially never see a system.
