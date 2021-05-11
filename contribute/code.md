@@ -1,5 +1,5 @@
 ---
-title: Building
+title: Code Conventions
 parent: Contribute
 nav_order: 5
 ---
