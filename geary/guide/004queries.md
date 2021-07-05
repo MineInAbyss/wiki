@@ -67,6 +67,10 @@ HealthQuery.apply {
 
 If we simply did `HealthQuery.forEach`, we would not be able to call the `health` extension function on our result!
 
+### Accessing the entity
+
+The result also contains the `entity` that it corresponds to. You are free to add or remove any components from it concurrently.
+
 ## Regular family operations
 
 You can use exactly the same operations described in [Families](families) in the Query's init block:
