@@ -34,7 +34,7 @@ sections:
   - name: section1 # will show up when using /linfo
     refTop: [0, 0, 0]
     refBottom: [0, 16, 0] # a location in this section that corresponds to the lower section's refTop
-    region: [0, 0, 1000, 1000] # corners for this section (x1, y1, x2, y2)
+    region: [0, 0, 1000, 1000] # corners for this section (x1, z1, x2, z2)
     world: world
   - name: section2
     refTop: [1000, 240, 0] # a location in this section that corresponds to the higher section's refBottom
