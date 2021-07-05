@@ -2,8 +2,13 @@
 title: Actions & Conditions
 parent: Guide
 grand_parent: Geary
-nav_order: 2
+nav_order: 6
+permalink: geary/guide/actions-and-conditions
 ---
+
+Rewrite incoming
+{: .label .label-yellow } 
+- Will soon be rewritten to use the same underlying system as queries.
 
 # Actions and Conditions
 

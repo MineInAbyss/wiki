@@ -3,6 +3,7 @@ title: Components
 parent: Guide 
 grand_parent: Geary 
 nav_order: 1
+permalink: geary/guide/components
 ---
 
 # Components

@@ -3,6 +3,7 @@ title: Entities
 parent: Guide
 grand_parent: Geary
 nav_order: 0
+permalink: geary/guide/entities
 ---
 
 # Entities

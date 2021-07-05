@@ -3,6 +3,7 @@ title: Serialization
 parent: Guide
 grand_parent: Geary
 nav_order: 10
+permalink: geary/guide/serialization
 ---
 
 # Persisting Components and Serialization
