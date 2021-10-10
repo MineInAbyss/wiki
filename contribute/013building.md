@@ -1,12 +1,12 @@
 ---
 title: Building
 parent: Contribute
-nav_order: 3
+nav_order: 13
 ---
 
 # Building
 
-We use Gradle for all our Kotlin/Java projects. You do not need to install gradle, everything will be set up for you in one command! However, we highly recommend using IntelliJ as your IDE if you wish to contribute, as it's made by the same company makes Kotlin.
+We use Gradle for all our Kotlin/Java projects. You do not need to install anything to build, however, we recommend building through IntelliJ if you wish to contribute.
 
 - Clone the repository in question.
 - Enter the project directory.
@@ -27,10 +27,4 @@ Most of our projects automatically copy the generated jar to a specified `plugin
 
 ## Composite builds
 
-We use Gradle's composite builds to work on two projects at once. Most of our projects have config options in the `gradle.properties` to include certain local projects. This makes working on two projects at once super convenient. The projects must be cloned to the same folder, i.e.:
-
-```
-Projects
-└───DeeperWorld
-└───MineInAbyss
-```
+When working on multiple projects at once, use our [composite master project](https://github.com/MineInAbyss/CompositeMegaproject9000).
