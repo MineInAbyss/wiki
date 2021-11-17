@@ -2,6 +2,7 @@
 title: GitHub
 parent: Contribute
 nav_order: 1
+permalink: contribute/github
 ---
 
 # GitHub

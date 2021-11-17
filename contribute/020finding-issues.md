@@ -2,6 +2,7 @@
 title: Finding issues
 parent: Contribute
 nav_order: 20
+permalink: contribute/finding-issues
 ---
 
 # Finding issues

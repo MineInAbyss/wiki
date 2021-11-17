@@ -2,6 +2,7 @@
 title: Server setup
 parent: Contribute
 nav_order: 10
+permalink: contribute/server-setup
 ---
 
 # Server setup

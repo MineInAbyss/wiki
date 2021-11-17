@@ -2,6 +2,7 @@
 title: Learning Java & Kotlin
 parent: Contribute
 nav_order: 2
+permalink: contribute/learn-java-kotlin
 ---
 
 # Learning Kotlin

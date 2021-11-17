@@ -2,6 +2,7 @@
 title: Building
 parent: Contribute
 nav_order: 13
+permalink: contribute/building
 ---
 
 # Building

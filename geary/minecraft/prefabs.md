@@ -1,8 +1,8 @@
 ---
 title: Prefabs
-parent: Introduction
+parent: Minecraft Guide
 grand_parent: Geary
-nav_order: 2
+nav_order: 10
 ---
 
 # Prefabs and Configuration

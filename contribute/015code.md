@@ -2,6 +2,7 @@
 title: Code conventions
 parent: Contribute
 nav_order: 15
+permalink: contribute/code-conventions
 ---
 
 # Coding conventions
