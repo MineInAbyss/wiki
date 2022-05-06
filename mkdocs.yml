@@ -1,6 +1,7 @@
 site_name: Mine in Abyss
 theme:
   features:
+    - navigation.instant
     - navigation.tabs
     - content.code.annotate
     #    - navigation.indexes
