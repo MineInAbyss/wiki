@@ -1,27 +1,96 @@
 # Relations
 
-Earlier we saw how Geary uses component types (classes like `Health, Location`) as a sort of key for setting or adding components. Internally, Geary assigns an entity id for each key. This means component types are entities within Geary.
-
-Relations take advantage of this fact, and that we will almost never need the full 64 bits in our entity id. They combine two entity ids together to relate two entities, or an entity-component pair.
+We saw how Geary uses component types (classes like `Health`, `Location`) as a sort of key for setting or adding components. Geary treats components as entities so each one has a unique key, its id. Relations take advantage of this by combining two ids together.
 
 !!! info "Definition: Relation"
 
-    A relation is a component type that is made up of two entity or component type ids in any combination.
+    A relation is a component-entity pair which may store data.
 
-## Component-component relation
+    - The entity with the relation is called the `source`
+    - The component part is the relation's `kind`, it defines what the relation *is*
+    - The second is the relation's `target`, or which entity our relation is *with*
 
-A relation can be made from a `Persisting` component type and any other component type to indicate a component should be persisted. Let's see this in action:
+For instance, we may say Alice has a relation of the kind `Friend` with Bob. Alice is the relation's source, and Bob is the relation's target.
+
+## Use
+
+Relations are extremely useful in many situations where we can't create unlimited components. We explore two key uses for them.
+
+### Describing entity relations
+
+Relations can describe a tangible relation between two entities. For example, parent/child relations, or being the instance of a prefab.
+
+### Avoiding component reuse
+
+We may use relations to avoid making many variations of the same component. 
+
+For instance, if we had potion effects with a duration, instead of a `HealingDuration`, `StrengthDuration`, etc... we may use a single `Duration` component as a relation with any effect.
+
+## Adding/setting relations
+
+Relations may be added or set just like components:
 
 ```kotlin
-class Persisting
-class Health(val amount: Int)
+sealed class Friend
+sealed class Persists
+data class Loves(val amount: Int)
 
-val entity = entity {
-    set(Health(20))
-    set(Persisting::class to Health::class)
+val alice = entity()
+val bob = entity()
+
+alice.addRelation<Friend>(bob) //(1)
+
+alice.set<String>("Hello world")
+alice.addRelation<Persists, String>() //(2)
+
+alice.setRelation(Loves(3000), bob) //(3)
+```
+
+1. A relation with kind defined by a component
+2. A relation with both kind and target defined by components
+3. A relation with data set
+
+## Reading relations
+
+### [`getRelation`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get-relation.html) and [`hasRelation`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/has-relation.html) for reading a single relation
+
+```kotlin
+alice.hasRelation<Persists, String>() // returns true
+alice.getRelation<Loves>(bob) // returns Loves(amount = 3000)
+```
+
+### [`getRelations`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get-relations.html) for queries
+
+Geary provides a function that can handle many kinds of relation queries by letting you specify a kind and target through components. Here are the rules:
+
+- Any on kind/target <=> The kind/target may be any entity
+- non nullable kind <=> The relation must hold data
+- non nullable target <=> A component of the target's type must also be set on the entity
+
+```kotlin
+getRelations<Friend?, Any?>() // Gets any added/set relations with kind Friend
+getRelations<Loves, Any?>() // Gets any set relations with kind Loves
+```
+
+### [`getRelationsWithData`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get-relations-with-data.html) for extra info in queries
+
+The queries are identical to `getRelations`, but the returned items have a lot more info in them, which looks a bit like this:
+
+```kotlin
+class RelationWithData<T, K> {
+    val data: T
+    val targetData: K
+    val kind: GearyEntity
+    val target: GearyEntity
+    val relation: Relation
 }
+```
 
-entity.get(Persisting::class to Any::class)
-// Returns listOf(
-entity.relations
+This is useful for certain applications but requires a bit more overhead:
+
+```kotlin
+alice.getRelationsWithData<Persists?, Any>().forEach { relWithData ->
+    // assuming save takes the component type, and data to save for it
+    alice.save(relWithData.target, relWithData.targetData)
+}
 ```
