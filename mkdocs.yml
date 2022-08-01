@@ -1,4 +1,6 @@
 site_name: Mine in Abyss
+site_url: https://mineinabyss.com/
+repo_url: https://github.com/MineInAbyss/wiki/
 theme:
   features:
     - navigation.instant
