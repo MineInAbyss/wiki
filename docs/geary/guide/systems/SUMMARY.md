@@ -1,0 +1,4 @@
+- systems*.md
+- families*.md
+- queries*.md
+- repeating-systems*.md

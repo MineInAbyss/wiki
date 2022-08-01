@@ -1,6 +1,5 @@
 - entities*.md
 - designing-components*.md
 - relations*.md
-- systems*.md
-- families*.md
+- systems*
 - queries*.md

@@ -1,4 +1,4 @@
-# Systems
+# Intro to systems
 
 We have a modular way to store data thanks to entities and components. Now, we want to actually do something with it. Before jumping into syntax, let's think about all the ways we could accomplish this goal.
 

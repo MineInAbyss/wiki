@@ -1,7 +1,5 @@
 # Queries
 
-Recall that queries find all entities matching a family.
-
 !!! info "Definition: Accessor"
     A special property that can be defined in systems to automatically build families for us.
 
@@ -42,7 +40,7 @@ class Alive
 
 === ":fontawesome-solid-3:"
 
-    Matching families is useful, but accessors also let us automatically read components, for example, with the `get` opertion.
+    Matching families is useful, but accessors also let us automatically read components, for example, with the `get` accessor.
 
     ```kotlin
     class HealthQuery : GearyQuery() {
@@ -78,3 +76,24 @@ HealthQuery.run {
     When accessors return a list of data, all possible combinations of that data will be iterated over, even if some iterations include the same entity several times.
     
     For example, if a Query has a relation accessor, `relation<A>()`, there may be several components related to `A` and each will get an iteration.
+
+```kotlin
+class HealthQuery : GearyQuery() {
+    val target by getEntity<Target>()
+    val source by getEntity<Source>()
+    val parent by source.getEntity<Parent>()
+    val player by parent.get<Player>()
+    val Handler.target by object: GetEntity<Target> {
+        
+    }
+    
+    val health by target.get<Health>()
+    val alive by target.family { has<Alive>() }
+    
+    fun Handler.tick() {
+        player
+        target.entity
+        parent.entity
+    }
+}
+```
