@@ -2,4 +2,3 @@
 - designing-components*.md
 - relations*.md
 - systems*
-- queries*.md
