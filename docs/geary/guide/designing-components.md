@@ -1,16 +1,27 @@
 # Designing Components
 
-## Use `data` classes when possible
+## Use [`data`](https://kotlinlang.org/docs/data-classes.html) classes when possible
 
-[Data classes](https://kotlinlang.org/docs/data-classes.html) auto-generate useful methods like `copy`, `equals`, and `hashCode`. Try to use data classes for all your components, ex:
+Data classes auto-generate useful methods like `copy`, `equals`, and `hashCode`. Try to use them for all your components, ex:
 
 ```kotlin
 data class Location(val x: Int, val y: Int, val z: Int)
 ```
 
+## Use [`sealed`](https://kotlinlang.org/docs/sealed-classes.html) classes for data-less components
+
+If a component should only ever be added to an entity, not set, a sealed class ensures it cannot be instantiated and nobody else can extend it, ex:
+
+```kotlin
+sealed class ReadyForBattle
+
+entity.add<ReadyForBattle>()
+entity.set(ReadyForBattle()) // Fails to compile
+```
+
 ## Avoid inheritance
 
-Inheritance breaks system modularity. Only use it if a library you work with already uses it. In this case, set the component both as a reasonable common parent class and as the exact class.
+Inheritance breaks modularity. Only use it if a library you work with already uses it.
 
 ```kotlin
 class Animal { ... }
@@ -18,13 +29,16 @@ class Pig: Animal { ... }
 
 entity().set(Pig())
 ```
-??? fail "Unclear whether this be set as an animal or pig"
+??? fail "Unclear whether this should be set as an animal or pig"
     If we set a `Pig`, then anything that reads `Animal` will think it's not there! Similarly, if we set `Animal`, then nothing will know it's actually a `Pig`. Finally, if our hierarchy is big enough, we can't reasonably set every possibility.
+
+??? warning "If absolutely necessary"
+    Set the component both as a reasonable common parent class and as the exact class. For instance, in Minecraft we use the common `Entity` class and the specific mob class.
 
 <hr>
 
 ```kotlin
-class Alive
+sealed class Alive
 data class Oinks(interval: Duration)
 
 entity {
@@ -32,13 +46,14 @@ entity {
     set(Oinks(5.seconds))
 }
 ```
+
 ??? success "Each component does one thing clearly"
     We can access either component without worrying about the other, or both if we like to.
 
 
 ## Aim for immutable components
 
-Keep component properties immutable unless they are absolutely performance critical and will only be used by ticking systems.
+Keep component properties immutable (`val`) unless they are absolutely performance critical.
 
 ```kotlin
 data class Health(var amount: Int)
@@ -62,4 +77,19 @@ entity {
 }
 ```
 
-!!! success "Changing health must be done through Geary, listeners will always know!"
+!!! success "Changing health must be done through Geary, it can notify any listeners!"
+
+## Extra
+
+??? warning "Don't set generic types like `#!kotlin List<String>`"
+    It is highly discouraged to use generic types with your components, because we can't actually verify those types when getting a component. This is called type erasure. For example:
+
+    ```kotlin
+    entity {
+        set(listOf("strings")) // sets a list of strings as a component
+        get<List<Int>>() // will succeed!
+    }
+    ```
+    
+    `#!kotlin get<List<Int>>()` succeeds because there is no way for us to know the generic type of the list during runtime. However, an error
+    will be thrown when trying to access elements of the list which thought were integers, but are actually strings.

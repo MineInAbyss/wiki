@@ -21,7 +21,7 @@ These are not inherently related to each other, for instance an entity can have 
 
 !!! tip
 
-    Each component should hold specific data, i.e. be good at one thing. This lets us choose exactly the data we need to write clean, modular code.
+    Each component should hold specific data, i.e. *be good at one thing*. This lets us choose exactly the data we need to write clean, modular code.
 
 ## Syntax
 
@@ -43,6 +43,9 @@ entity.set(Location(0.0, 10.0, 0.0))
 val anotherEntity = entity {
     set(Location(0.0, 0.0, 0.0))
 }
+
+// Read the data we set
+entity.get<Location>() // returns Location?
 ```
 
 1. The `set` operation gives a component to our entity. We'll learn more about it shortly.
@@ -57,7 +60,7 @@ So, we use `GearyEntity` to write safer code and keep all the operations togethe
 
 ## Entity operations
 
-### `set` gives an entity a component with data
+### [`set`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/set.html) gives an entity a component with data
 
 ```kotlin
 entity.set(SomeData())
@@ -71,7 +74,7 @@ entity.set<LivingEntity>(player)
 
 <hr>
 
-### `get` reads a component of the given type
+### [`get`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get.html) reads a component of the given type
 
 ```kotlin
 val data = entity.get<SomeData>() // returns SomeData? (1)
@@ -81,7 +84,7 @@ val data = entity.get<SomeData>() // returns SomeData? (1)
 
 <hr>
 
-### `add` assigns a component type to an entity, without attaching data
+### [`add`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/add.html) assigns a component type to an entity, without attaching data
 
 ```kotlin
 entity.add<Alive>()
@@ -90,11 +93,11 @@ entity.add<Alive>()
 `add` is useful for marker components that don't need to store data. Later we will explore how this feature lets us create relations to other entities.
 
 !!! question "Can we `add` and `set` the same component?"
-    Yes, `set` takes precedence, so if data is set, it will not be removed.
+    Yes, all set components are also added ones. Adding again will not remove any data.
 
 <hr>
 
-### `has` checks whether an entity has a set/added component
+### [`has`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/has.html) checks whether an entity has a set/added component
 
 ```kotlin
 entity.has<SomeComponent>() // returns Boolean
@@ -102,7 +105,7 @@ entity.has<SomeComponent>() // returns Boolean
 
 <hr>
 
-### `remove` removes a set/added component of a given type
+### [`remove`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/remove.html) removes a set/added component of a given type
 
 ```kotlin
 entity.remove<SomeComponent>()
@@ -110,7 +113,7 @@ entity.remove<SomeComponent>()
 
 <hr>
 
-### `with` runs code if an entity has all requested components set
+### [`with`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.helpers/with.html) runs code if an entity has all requested components set
 
 ```kotlin
 entity.with { loc: Location, sprite: Sprite, health: Health ->

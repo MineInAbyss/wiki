@@ -1,4 +1,4 @@
 - entities*.md
-- systems*.md
-- families*.md
 - designing-components*.md
+- relations*.md
+- systems*

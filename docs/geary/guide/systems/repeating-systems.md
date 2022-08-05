@@ -1,12 +1,12 @@
-# Ticking systems
+# Repeating systems
 
-- A ticking system is a query that runs on a defined interval.
+- A repeating system is a query that runs on a defined interval.
 
-# Your first system
+## Your first system
 
 Let's start simple and create a theoretical system that switches textures for entities when they are moving.
 
-## Given data
+### Given data
 
 ```kotlin
 data class Texture { ... }
@@ -25,28 +25,28 @@ data class Velocity(...) {
 }
 ```
 
-## Extend `TickingSystem`
+### Extend `TickingSystem`
 
 ```kotlin
-object WalkingAnimationSystem : TickingSystem(interval = 10) { // measured in ticks
+object WalkingAnimationSystem : TickingSystem(interval = 1.seconds) {
 ```
 
-## Add accessors just like a Query
+### Add accessors just like a Query
 ```kotlin
 ...
-    private val ResultScope.textures by get<Textures>()
-    private val ResultScope.render by get<Render>()
-    private val ResultScope.velocity by get<Velocity>()
+    private val TargetScope.textures by get<Textures>()
+    private val TargetScope.render by get<Render>()
+    private val TargetScope.velocity by get<Velocity>()
 ...
 ```
 
-## Implement a tick function
+### Implement a tick function
 
-Ticking systems provide a `ResultScope.tick()` function to avoid calling `forEach` every time.
+Ticking systems provide a `TargetScope.tick()` function to avoid calling `forEach` every time.
 
 ```kotlin
 ...
-    override fun ResultScope.tick() {
+    override fun TargetScope.tick() {
         render.activeTexture = when(velocity.isNotZero()) {
             true -> textures.walking
             false -> textures.idle
@@ -60,19 +60,15 @@ Sometimes we want to evaluate code once instead of running it per entity. In thi
 ```kotlin
 override fun tick() {
     val data = complexOperation()
-    forEach { result ->
+    fastForEach { result ->
         result.entity.doSomething(data)
     }
 }
 ```
 
-## Register the System
+## Extras
 
-Either call `Engine.addSystem(WalkingAnimationSystem)` or add it in Geary's plugin extension DSL. That's all!
-
-# Extras
-
-## System pipeline
+### System pipeline
 
 It is common to want fine control over the order systems execute in. In the future, Geary will do this with a pipeline, where each system can specify what step it relates to. 
 
