@@ -53,26 +53,38 @@ class Alive
 
 ---
 
-### Iteration
+## Accessor types
+
+Geary has the following accessors:
+
+- `#!kotlin get<T>()` matches entities with components of type `T`
+- `#!kotlin getOrNull/getOrDefault<T>()` gets a component of type `T`, or uses the default value
+
+### List accessors
+
+List accessors will run your system once for every matched item. For instance, `getRelations<ChildOf?, Any?>` will run your system for each parent.
+
+- `#!kotlin getRelations<K, T>()` individually matches all relation combinations
+
+### Transformers
+
+- `#!kotlin accessor.flatten()` makes list accessors return a list instead of running many times
+- `#!kotlin accessor.map()` maps any matched data to some new result
+
+## Iteration
 
 Every Query is an `Iterator` of `TargetScope`s, so you can call `forEach`, `asSequence`, `map`, etc... on them. However, when possible use `fastForEach`.
 
-To read our accessors' data, we must enter the scope of the query, then run one of these operations like so:
+To read our accessors' data, we first enter the scope of the query, then run one of these operations like so:
 
 ```kotlin
 HealthQuery.run {
-    fastForEach { result ->
+    fastForEach { target ->
         // Increase every matched entity's health by 1
-        result.entity.set(Health(result.health.amount + 1))
+        target.entity.set(Health(target.health.amount + 1))
     }
 }
 ```
 
 !!! note
-    If we simply did `HealthQuery.fastForEach { ... }`, we would not be able to call the `health` property on our result!
-
-!!! warning "Data combinations"
-
-    When accessors return a list of data, all possible combinations of that data will be iterated over, even if some iterations include the same entity several times.
-    
-    For example, if a Query has a relation accessor, `relation<A>()`, there may be several components related to `A` and each will get an iteration.
+    If we simply did `HealthQuery.fastForEach { ... }`, we would not be able to call the `health` property on our target!

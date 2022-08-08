@@ -1,22 +1,77 @@
 # Defining families
 
-!!! warning
-    The current system is convoluted, this page describes the planned rewrite
+Families have a counterpart for the following entity operations: `has`, `hasSet`, and `hasRelation` which match against all entities where those operations would return `#!kotlin true`.
 
-Recall that families define rules regarding components. Geary lets us define those rules using the `family {}` builder.
-
-Families have operations for selecting entities, which can be joined by three connectives, `and, not, or`, evaluated left to right.
-
-## Operations
-
-Families have a counterpart for three entity operations: `has`, `hasSet`, and `hasRelation` which match against all entities where those operations would return `#!kotlin true`.
+These operations be joined by three connectives, `and, not, or`.
 
 ## Usage
 
-Let's look at an example family made of several operations:
 
-```kotlin
-val family = family { (has<A> and not(has<B>)) or has<C> }
-```
+Families don't inline connectives (ex. `A or B`) since we often want to match many components at once. Thus, we use a tree structure.
 
-Once created, a family can check if an entity matches it with `#!kotlin entity in family // Boolean`. More importantly, we can now use them in our systems for fast pattern matching.
+Consider three components, `A, B, C`, let's try to build some families from them.
+
+=== ":octicons-file-code-16: A and B"
+
+    ```kotlin
+    family {
+        and {
+            has<A>()
+            has<B>()
+        }
+    }
+    ```
+    Families default to the and selector, so this is equivalent to the following:
+    
+    ```kotlin
+    family {
+        has<A>()
+        has<B>()
+    }
+    ```
+
+=== ":octicons-file-code-16: A or B or C"
+
+    ```kotlin
+    family {
+        or {
+            has<A>()
+            has<B>()
+            has<C>()
+        }
+    }
+    ```
+
+=== ":octicons-file-code-16: (A or B) and not C"
+
+    ```kotlin
+    family {
+        or {
+            has<A>()
+            has<B>()
+        }
+        not {
+            has<C>()
+        }
+    }
+    ```
+
+=== ":octicons-file-code-16: (A or B) and not (child of C)"
+
+    ```kotlin
+    family {
+        or {
+            has<A>()
+            has<B>()
+        }
+        not {
+            and {
+                hasRelation<ChildOf?, C?>()
+            }
+        }
+    }
+    ```
+
+## Getting matched entities
+
+Once created, a family can check if an entity matches it with `#!kotlin entity in family // Boolean`. More importantly, we can now use them in our systems for fast pattern matching in queries.
