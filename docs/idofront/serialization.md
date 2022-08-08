@@ -8,7 +8,7 @@ Idofront adds serializers for many data types
 
 Create a serializable class with kotlinx.serialization, then set the serializer for the property you need:
 
-```kt
+```kotlin
 @Serializable
 class Something(
     @Serializable(with = LocationSerializer::class)
@@ -17,7 +17,7 @@ class Something(
 ```
 
 Or declare the serializer once at the top of the file:
-```kt
+```kotlin
 @file:UseSerializers(UUIDSerializer::class)
 
 ...
@@ -48,7 +48,7 @@ Lets you define items cleanly in config, then convert them to a bukkit ItemStack
 ## Recipes
 
 Example YML from using `SerializableRecipe`
-```yml
+```yaml
 recipe:
   key: "plugin:some_recipe"
   ingredients:
@@ -80,7 +80,7 @@ Durations are serialized as a number followed by a timescale (ex `1s` for one se
 
 ### Supported timescales:
 
-```yml
+```yaml
 t: Ticks
 s: Seconds
 m: Minutes

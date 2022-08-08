@@ -1,6 +1,6 @@
 # NMS
 
-```kt
+```kotlin
 implementation("com.mineinabyss:idofront-nms:<version>")
 ```
 
@@ -11,7 +11,7 @@ We provide `toBukkit` and `toNMS` extension functions for some common NMS types,
 Classes include: Entity, Player, World, Inventory, ItemStack
 
 Example:
-```kt
+```kotlin
 bukkitEntity.toNMS() // returns NMSEntity
 nmsEntity.toBukkit() // returns BukkitEntity
 ```

@@ -13,7 +13,7 @@ Our plugins share many libraries, for simplicity we provide one platform for eve
 
 ## Developer usage
 
-```kt
+```kotlin
 implementation("com.mineinabyss:idofront-platform-loader:<version>")
 ```
 
@@ -49,7 +49,7 @@ If you want to place the file inside the plugins folder, it must not end in `.ja
 
 Inside the onLoad function, define:
 
-```kt
+```kotlin
 IdofrontPlatforms.load(this, "platformName")
 ```
 
