@@ -1,3 +1,4 @@
-- [Resources](resources.md)
+- intro*.md
+- resources*.md
 - *md
 - */
