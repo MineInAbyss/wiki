@@ -4,6 +4,8 @@
 
     A tool that helps people collaborate on code and keep a history of changes. A project tracked in git is called a repository.
 
+---
+
 !!! info "Definition: GitHub"
     
     A website we use to host our git repositories and track things that need to be coded under issues.

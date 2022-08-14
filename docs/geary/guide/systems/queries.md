@@ -3,6 +3,8 @@
 !!! info "Definition: Accessor"
     A special property that can be defined in systems to automatically build families for us.
 
+---
+
 !!! info "Definition: Accessor Scope"
     A bundle of data relating to a queried entity, which an accessor can quickly read from.
 

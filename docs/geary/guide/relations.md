@@ -52,14 +52,14 @@ alice.setRelation(Loves(3000), bob) //(3)
 
 ## Reading relations
 
-### [`getRelation`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get-relation.html) and [`hasRelation`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/has-relation.html) for reading a single relation
+### [`getRelation`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/get-relation.html) and [`hasRelation`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/has-relation.html) for reading a single relation
 
 ```kotlin
 alice.hasRelation<Persists, String>() // returns true
 alice.getRelation<Loves>(bob) // returns Loves(amount = 3000)
 ```
 
-### [`getRelations`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get-relations.html) for queries
+### [`getRelations`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/get-relations.html) for quick queries
 
 Geary provides a function that can handle many kinds of relation queries by letting you specify a kind and target through components. Here are the rules:
 
@@ -72,7 +72,7 @@ getRelations<Friend?, Any?>() // Gets any added/set relations with kind Friend
 getRelations<Loves, Any?>() // Gets any set relations with kind Loves
 ```
 
-### [`getRelationsWithData`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get-relations-with-data.html) for extra info in queries
+### [`getRelationsWithData`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/get-relations-with-data.html) for extra info in queries
 
 The queries are identical to `getRelations`, but the returned items have a lot more info in them, which looks a bit like this:
 

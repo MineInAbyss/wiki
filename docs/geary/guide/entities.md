@@ -9,7 +9,9 @@
 
     An entity is a unique *thing* that holds information.
 
-Notice how broad this definition is. An entity could be a zombie, a place in the world, the sound made by a player's footstep. What makes our entity unique is an `identifier` that represents it, in our case a 64-bit number we call `GearyEntityId`.
+Notice how broad this definition is. An entity could be a zombie, a place in the world, the sound made by a player's footstep. What makes our entity unique is an `identifier` that represents it, in our case a 64-bit number we call `EntityId`.
+
+---
 
 !!! info "Definition: Component"
 
@@ -29,7 +31,7 @@ Let's have a look at creating entities and giving them components.
 
 ```kotlin
 // Create an empty entity
-val entity: GearyEntity = entity()
+val entity: Entity = entity()
 
 entity.id // Get the unique id of this entity
 
@@ -52,15 +54,19 @@ entity.get<Location>() // returns Location?
 2. Notice this is just a regular class! We can add any class as a component, even if we didn't make it ourselves.
 3. This is the same as doing `#!kotlin entity().apply { ... }`
 
-## The [`GearyEntity`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/index.html) class
+??? note "Why make an Entity class?"
 
-Notice how calling `entity()` returned `GearyEntity` instead of a number. While it is useful to represent entities as numbers internally, if we wrote an operation like `set` for all numbers, someone could accidentally do `#!kotlin 42.set(...)` without ever making a 42nd entity!
+    Notice how calling `entity()` returned `Entity` instead of a number. While it is useful to represent entities as numbers internally, if we wrote an operation like `set` for all numbers, someone could accidentally do `#!kotlin 42.set(...)` without ever making a 42nd entity!
 
-So, we use `GearyEntity` to write safer code and keep all the operations together. Click on the title to see full documentation, but we'll take a look at the most important operations below.
+    So, we use `Entity` to write safer code and keep all the operations together. Click on the title below to see full documentation.
 
-## Entity operations
+!!! tip "Tip: Typealiases"
 
-### [`set`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/set.html) gives an entity a component with data
+    Geary provides typealiases like `GearyEntity` for most classes so you can avoid conflicts if you already have a class named `Entity`.
+
+## [`Entity`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/index.html) operations
+
+### [`set`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/set.html) gives an entity a component with data
 
 ```kotlin
 entity.set(SomeData())
@@ -74,7 +80,7 @@ entity.set<LivingEntity>(player)
 
 <hr>
 
-### [`get`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/get.html) reads a component of the given type
+### [`get`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/get.html) reads a component of the given type
 
 ```kotlin
 val data = entity.get<SomeData>() // returns SomeData? (1)
@@ -84,7 +90,7 @@ val data = entity.get<SomeData>() // returns SomeData? (1)
 
 <hr>
 
-### [`add`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/add.html) assigns a component type to an entity, without attaching data
+### [`add`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/add.html) assigns a component type to an entity, without attaching data
 
 ```kotlin
 entity.add<Alive>()
@@ -97,7 +103,7 @@ entity.add<Alive>()
 
 <hr>
 
-### [`has`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/has.html) checks whether an entity has a set/added component
+### [`has`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/has.html) checks whether an entity has a set/added component
 
 ```kotlin
 entity.has<SomeComponent>() // returns Boolean
@@ -105,7 +111,7 @@ entity.has<SomeComponent>() // returns Boolean
 
 <hr>
 
-### [`remove`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-geary-entity/remove.html) removes a set/added component of a given type
+### [`remove`](https://mineinabyss.com/Geary/geary-core/com.mineinabyss.geary.datatypes/-entity/remove.html) removes a set/added component of a given type
 
 ```kotlin
 entity.remove<SomeComponent>()
@@ -136,19 +142,3 @@ entity.getOrSet<C> { C() } // (3)
 1. Tries to get `A` or stops if not present.
 2. Tries to get `B` or uses a default value.
 3. Tries to get `C` or sets and returns a default value.
-
-## Extra
-
-??? warning "Don't set generic types like `#!kotlin List<String>`"
-    It is highly discouraged to use generic types with your components, because we can't
-    actually verify those types when getting a component. This is called type erasure. For example:
-    
-    ```kotlin
-    entity {
-        set(listOf("strings")) // sets a list of strings as a component
-        get<List<Int>>() // will succeed!
-    }
-    ```
-    
-    `#!kotlin get<List<Int>>()` succeeds because there is no way for us to know the generic type of the list during runtime. However, an error
-    will be thrown when trying to access elements of the list which thought were integers, but are actually strings.
