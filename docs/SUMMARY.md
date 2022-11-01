@@ -1,5 +1,5 @@
 - [Home](index.md)
-  - *.md
+    - [Versions](versions.md)
 - [Contributing](contributing/)
 - [Geary](geary/)
 - [DeeperWorld](deeperworld/)
