@@ -1,6 +1,6 @@
 # Serialization
 
-!!! info "Currently in main package, will be split later."
+!!! info "Package [![](https://img.shields.io/maven-metadata/v?label=idofront-serializers&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-serializers/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-serializers)"
 
 Idofront adds serializers for many data types
 
