@@ -1,5 +1,8 @@
 # NMS
 
+!!! info "Package [![](https://img.shields.io/maven-metadata/v?label=idofront-nms&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-nms/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-nms)"
+
+
 ```kotlin
 implementation("com.mineinabyss:idofront-nms:<version>")
 ```

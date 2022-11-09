@@ -26,7 +26,8 @@ config<ExampleConfig>(fileName = "config") {
 }
 ```
 
-Notice, we did not specify a file type in our file name. Idofront will look for all supported file types until it finds a valid extension.
+!!! note
+    Notice, we did not specify a file type in our file name. Idofront will look for all supported file types until it finds a valid extension.
 
 ## Define input source
 
@@ -58,9 +59,10 @@ formats { module ->
 }
 ```
 
-### Default configs
+[//]: # (### Default configs)
 
-- `#!kotlin default(ext: String, config: YourConfig /*optional*/))`<br> If the config file does not exist, will save a config using the serializer for `ext`. If `config` isn't specified, will try to use the class' default constructor.
+[//]: # ()
+[//]: # (- `#!kotlin default&#40;ext: String, config: YourConfig /*optional*/&#41;&#41;`<br> If the config file does not exist, will save a config using the serializer for `ext`. If `config` isn't specified, will try to use the class' default constructor.)
 
 ## Example
 

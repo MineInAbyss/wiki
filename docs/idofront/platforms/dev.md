@@ -1,21 +1,6 @@
-# Platforms
+# Developer Usage
 
-Platforms make it easy to reuse dependencies across plugins, while preventing interference with other plugins.
-
-## Mine in Abyss platform
-
-Our plugins share many libraries, for simplicity we provide one platform for everything.
-
-### Installation
-
-- Download the latest platform from [GitHub](https://github.com/MineInAbyss/Idofront/releases/latest)
-- Place the `.platform` file into your plugins folder
-
-## Developer usage
-
-```kotlin
-implementation("com.mineinabyss:idofront-platform-loader:<version>")
-```
+!!! info "Package [![](https://img.shields.io/maven-metadata/v?label=idofront-platform-loader&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-platform-loader/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-platform-loader)"
 
 ### What problems do platforms solve?
 
@@ -50,7 +35,7 @@ If you want to place the file inside the plugins folder, it must not end in `.ja
 Inside the onLoad function, define:
 
 ```kotlin
-IdofrontPlatforms.load(this, "platformName")
+Platforms.load(this, "platformName")
 ```
 
 This will load `platformName.platform` inside the plugins folder. You may load several in one plugin.

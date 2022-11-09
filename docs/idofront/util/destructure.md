@@ -1,17 +1,18 @@
 # Destructure
-*Read about this Kotlin feature in [Kotlin Docs - Destructuring Declarations](https://kotlinlang.org/docs/reference/multi-declarations.html)*
 
-> Sometimes it is convenient to destructure an object into a number of variables, for example:
->
-> ```kotlin
-> val (name, age) = person
-> ```
+!!! note "Read about this Kotlin feature in [Kotlin Docs - Destructuring Declarations](https://kotlinlang.org/docs/destructuring-declarations.html)"
+
+Sometimes it is convenient to destructure an object into a number of variables, for example:
+
+```kotlin
+val (name, age) = person
+```
 
 In spigot, this pattern is very convenient for events, locations, and more. Idofront provides destructors for many direct subclasses of the `Event` class, allowing for the following:
 
 ```kotlin
 fun onLeash(event: PlayerLeashEntityEvent) {
-        val (player, entity, leashHolder) = event
+    val (player, entity, leashHolder) = event
 }
 ```
 
