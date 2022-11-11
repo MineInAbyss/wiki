@@ -1,0 +1,3 @@
+- ide-setup*
+- server-setup*
+- new-project*

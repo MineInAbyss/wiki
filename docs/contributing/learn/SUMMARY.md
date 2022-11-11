@@ -1,3 +1,2 @@
 - kotlin*
 - github*
-- server-setup*

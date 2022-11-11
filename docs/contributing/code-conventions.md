@@ -12,11 +12,7 @@ IntelliJ has an autoformatter that follows this style guide, use `Ctrl+Alt+L` to
 
 ## Idofront: our shared utils library
 
-Idofront is a library we share between most of our plugins that adds helper functions, a command DSL, and more. Be sure to check out its [wiki](../idofront/index.md)!
-
-## Gradle conventions
-
-We reuse gradle configuration code with [idofront-gradle](https://github.com/MineInAbyss/Idofront/tree/master/idofront-gradle).
+Idofront is a library we share between most of our plugins that adds helper functions, a command DSL, and more. Be sure to check out its [wiki](../idofront/)!
 
 ## Publishing
 
