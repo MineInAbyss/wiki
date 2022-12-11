@@ -10,14 +10,12 @@ IntelliJ has an autoformatter that follows this style guide, use `Ctrl+Alt+L` to
 ??? note "If you need to tell IntelliJ to use the new code style, go here"
     <img src="https://user-images.githubusercontent.com/16233018/115119043-6d144600-9f74-11eb-9ec2-59d1d5bcb42c.png" width="800">
 
-## Idofront: our shared utils library
+## Idofront
 
-Idofront is a library we share between most of our plugins that adds helper functions, a command DSL, and more. Be sure to check out its [wiki](../idofront/index.md)!
-
-## Gradle conventions
-
-We reuse gradle configuration code with [idofront-gradle](https://github.com/MineInAbyss/Idofront/tree/master/idofront-gradle).
+Idofront is a library we share between most of our plugins that adds helper functions, a command DSL, and more. You can find documentation for it in the [Idofront](/idofront) tab.
 
 ## Publishing
 
-We use GitHub workflows for CI and publishing to our maven repo: [repo.mineinabyss.com](https://repo.mineinabyss.com). Please always use `com.mineinabyss` as the group id for new projects.
+Some of our projects are libraries that other projects need to depend on. For example, MineInAbyss depends on DeeperWorld. We have our own maven repository ([repo.mineinabyss.com](https://repo.mineinabyss.com)) which lets us add these dependencies in Gradle.
+
+Please use `com.mineinabyss` as the group id for new projects for consistency.

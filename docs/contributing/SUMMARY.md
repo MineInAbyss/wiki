@@ -1,6 +1,6 @@
 - [Welcome](index.md)
-- learn-*.md
-- [Collaborating with GitHub](github.md)
-- github*.md
+- join-a-project*.md
+- [Learn to Code](learn/)
+- [Setup](setup/)
 - code*.md
 - *.md
