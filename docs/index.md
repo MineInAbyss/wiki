@@ -8,7 +8,7 @@ Welcome to the Mine in Abyss Wiki. This site is powered by Material for MkDocs a
     Check out the [Contributing](contributing) tab for resources to learn coding, setup a local server, and contribute code to our projects.
 
 ??? question "Can I use your code in my projects?"
-    We try to keep everything we make open source, mostly under the very permissive MIT license. Feel free to use and extend upon our plugins, and try to contribute back if you do.
+    We try to keep everything we make open source, mostly under the very permissive MIT license which allows you to use and extend upon our plugins. Please try to contribute back if you do!
     <br><br>
     You can find everything on our [GitHub organization](https://github.com/MineInAbyss).
 

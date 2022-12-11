@@ -1,6 +1,6 @@
-# Server setup
+# Server Setup
 
-We provide a Docker image that lets you quickly set up a local server.
+We use Docker to quickly set up a local server.
 
 !!! warning
     Docker on Windows 11 may have issues with world corruption. Do not keep anything important on your server world!
@@ -28,7 +28,8 @@ Follow [these instructions](https://docs.docker.com/get-docker/) to install Dock
           # Stores server files in a folder named papermc next to your compose.yml
           - ./papermc:/data:rw
         environment:
-            MEMORYSIZE: 2G 
+            MEMORYSIZE: 2G # Try to keep low
+            PAPERMC_FLAGS: "" # Shows colors in console
         # Allows 'docker attach' to work
         stdin_open: true
         tty: true
@@ -44,57 +45,28 @@ Follow [these instructions](https://docs.docker.com/get-docker/) to install Dock
             PGID: 1000
         ```
 
-=== "Server with Waterfall"
-
-    !!! info
-        Waterfall is a proxy that lets multiple servers talk to each other (we use it to keep survival and build connected).
-        <br>
-        We recommend adding two folders next to each other, one for Minecraft, the other for Waterfall.
-
-    ```yaml
-    version: "3.9"
-    services:
-      minecraft:
-        image: ...
-        ports:
-          - "25564:25565"
-        volumes:
-          - ./minecraft:/server
-      waterfall:
-        image:
-        ports:
-          - "25565:25565"
-        volumes:
-          - ./waterfall:/server
-    ```
-
 ## Running the server
 
 ### In Terminal
 
-Open a terminal in the current directory and run:
+Open a terminal in the directory of your docker-compose file and run:
 
-- `docker-compose up` to start and see a log
-- `docker-compose up -d && docker attach papermc` to start in the background and attach to the papermc server for input (ex to run a command.)
-- `docker-compose stop` to stop the server
+- `#!shell docker-compose up -d && docker attach papermc` to start in the background and attach to the papermc server for input (to be able to run commands.)
 
+!!! tip "Tip: Use an alias for convenience"
+    Linux/MacOS terminals usually let you modify their startup commands, here's an example I use to start my server by calling `papermc`:
+
+    ```shell
+    alias papermc="docker-compose -f /path/to/my/docker-compose.yml up -d && docker attach papermc"
+    ```
 ### In IntelliJ
 
-See [Intellij Docker Guide](https://www.jetbrains.com/help/idea/docker.html).
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ck6xQqSOlpw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Documentation here: [Intellij Docker Guide](https://www.jetbrains.com/help/idea/docker.html).
 
 ## First run
 
 Attach to papermc and run `op <yourname>` to give yourself permissions.
 
 You can now put plugins into the `plugins` folder! Later we will show you how to automatically put the plugins you build into this folder.
-
-## Automatic copyJar
-
-Most of our projects automatically copy the generated jar to a specified `plugin_path`. To specify it globally:
-
-- Create and open `~/.gradle/gradle.properties` (`~` being your user directory).
-- Add `plugin_path=path/to/my/server/plugins`.
-- Ensure you use `/` and not `\`.
-
-!!! note
-    We are working on a Docker image for local development which will help you get set up way faster.
