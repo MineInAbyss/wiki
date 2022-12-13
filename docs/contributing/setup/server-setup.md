@@ -1,13 +1,11 @@
 # Server Setup
 
-We use Docker to quickly set up a local server.
-
 !!! warning
     Docker on Windows 11 may have issues with world corruption. Do not keep anything important on your server world!
 
 ## Install Docker
 
-Follow [these instructions](https://docs.docker.com/get-docker/) to install Docker.
+We use Docker to make images of servers that will run the same on any computer, which saves a lot of headaches! Follow [these instructions](https://docs.docker.com/get-docker/) to install Docker.
 
 ## Create a docker compose file
 
@@ -20,7 +18,7 @@ Follow [these instructions](https://docs.docker.com/get-docker/) to install Dock
     version: "3.9"
     services:
       minecraft:
-        image: marctv/minecraft-papermc-server:1.19 # Update as needed (1)
+        image: ghcr.io/mineinabyss/papermc_dev:master
         container_name: papermc
         ports:
           - "25565:25565"
@@ -28,32 +26,62 @@ Follow [these instructions](https://docs.docker.com/get-docker/) to install Dock
           # Stores server files in a folder named papermc next to your compose.yml
           - ./papermc:/data:rw
         environment:
-            MEMORYSIZE: 2G # Try to keep low
+            MEMORYSIZE: 2G
             PAPERMC_FLAGS: "" # Shows colors in console
         # Allows 'docker attach' to work
         stdin_open: true
         tty: true
     ```
 
-    1. You may also use `latest`. **don't** add a third number like `1.19.2`.
+??? info "Info: :penguin: Linux users"
+    Set your user/group id to avoid permission issues, ex:
+    ```yaml
+    environment:
+        PUID: 1000
+        PGID: 1000
+    ```
 
-    ??? info "Info: :penguin: Linux users"
-        Set your user/group id to avoid permission issues, ex:
-        ```yaml
-        environment:
-            PUID: 1000
-            PGID: 1000
-        ```
+!!! tip
+    You may wish to turn certain features on or off for your server (ex. auto updating plugins.) We list all supported `environment` options for our containers [here](https://github.com/MineInAbyss/Docker).
+
+## Auto download plugins
+
+The dev image comes with [Keepup](https://github.com/MineInAbyss/Keepup/), our tool for managing plugins. It will automatically download our latest plugin config file to `keepup/mineinabyss.conf` and merge it with `keepup/local.conf`. You can inherit plugins from mineinabyss in `local.conf` as follows:
+
+#### Inherit plugins from specific server
+```json
+local: ${mineinabyss.servers.survival}
+```
+
+#### Inherit multiple parts
+```json
+local: ${mineinabyss.core} ${mineinabyss.plugins}
+```
+
+#### Add your own plugins, or inherit specific ones
+```json
+local: ${mineinabyss.core} {
+  some-plugin: "https://..."
+  blocky: ${mineinabys.plugins.blocky}
+}
+```
+
+!!! note
+    Keepup will not install a plugin if a similar one already exist in your plugins folder. So if you build a plugin locally, your version will be used. Remember to delete the file if you want updates!
 
 ## Running the server
 
 ### In Terminal
 
-Open a terminal in the directory of your docker-compose file and run:
+Open a terminal in the directory of your `docker-compose.yml` and run:
 
-- `#!shell docker-compose up -d && docker attach papermc` to start in the background and attach to the papermc server for input (to be able to run commands.)
+```shell
+docker-compose up -d && docker attach papermc
+```
 
-!!! tip "Tip: Use an alias for convenience"
+To start in the background and attach to the papermc server for commands.
+
+??? tip "Tip: Use an alias for convenience"
     Linux/MacOS terminals usually let you modify their startup commands, here's an example I use to start my server by calling `papermc`:
 
     ```shell
@@ -61,12 +89,8 @@ Open a terminal in the directory of your docker-compose file and run:
     ```
 ### In IntelliJ
 
+IntelliJ has some visual features for running containers right from the IDE. This is for more advanced devs.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ck6xQqSOlpw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Documentation here: [Intellij Docker Guide](https://www.jetbrains.com/help/idea/docker.html).
-
-## First run
-
-Attach to papermc and run `op <yourname>` to give yourself permissions.
-
-You can now put plugins into the `plugins` folder! Later we will show you how to automatically put the plugins you build into this folder.
