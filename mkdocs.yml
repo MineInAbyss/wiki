@@ -52,6 +52,9 @@ plugins:
   - literate-nav:
       nav_file: SUMMARY.md
   - search
+  - redirects:
+      redirect_maps:
+        contribute.md: contributing/index.md
 
 extra_css:
   - stylesheets/extra.css
@@ -63,3 +66,12 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/MineInAbyss
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/QXPCk2y
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/MineInAbyss
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@MineInAbyss
+    - icon: fontawesome/brands/patreon
+      link: https://www.patreon.com/MineInAbyss
+

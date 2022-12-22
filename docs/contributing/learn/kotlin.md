@@ -1,6 +1,6 @@
 # Learn Kotlin
 
-We use [Kotlin](https://kotlinlang.org/) to make our plugins. Kotlin is built on the same thing as Java, so we often interact with Java as well. This guide will help you start learning Kotlin or programming in general.
+We use [:simple-kotlin: Kotlin](https://kotlinlang.org/) to make our plugins. Kotlin is built on the same thing as Java, so we often interact with Java as well. This guide will help you start learning Kotlin or programming in general.
 
 ## No programming knowledge
 

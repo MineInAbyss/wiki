@@ -1,5 +1,7 @@
 # DeeperWorld
 
+[:simple-github: GitHub](https://github.com/MineInAbyss/DeeperWorld)
+
 Welcome to the DeeperWorld wiki! These pages will explain how to set up and configure DeeperWorld for your own server.
 
 ## Notes before using
@@ -12,4 +14,4 @@ Start by reading the [Installation](installation) guide, from there move onto th
 
 ## Extra help
 
-Please contact us in `#plugin-dev` on [Discord](https://discord.gg/QXPCk2y).
+Please contact us in [:simple-discord: `#plugin-dev`](https://discord.gg/QXPCk2y).

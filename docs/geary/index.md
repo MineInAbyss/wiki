@@ -1,10 +1,7 @@
+[:simple-github: GitHub](https://github.com/MineInAbyss/Geary)
+[:simple-kotlin: KDoc](https://mineinabyss.com/Geary/)
+
 Geary is an event driven Entity Component System (ECS) written in Kotlin. It was originally designed for use with custom Minecraft: Java Edition servers.
-
-## Links
-
-Javadoc: [mineinabyss.com/Geary](https://mineinabyss.com/Geary/)
-
-GitHub: [github.com/MineInAbyss/Geary](https://github.com/MineInAbyss/Geary)
 
 ## Quick ECS resources
 

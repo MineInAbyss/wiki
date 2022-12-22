@@ -5,7 +5,7 @@
 
 ## Install Docker
 
-We use Docker to make images of servers that will run the same on any computer, which saves a lot of headaches! Follow [these instructions](https://docs.docker.com/get-docker/) to install Docker.
+We use Docker to make images of servers that will run the same on any computer, which saves a lot of headaches! Follow [:simple-docker: Docker's install guide](https://docs.docker.com/get-docker/).
 
 ## Create a docker compose file
 

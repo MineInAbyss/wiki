@@ -16,4 +16,4 @@ Below is a great in-depth video guide going through the entire process of contri
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QfmYUiXMs2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If you're into reading, you can also check out GitHub's [quickstart guide](https://docs.github.com/en/get-started/quickstart).
+If you're into reading, you can also check out [:simple-github: GitHub's quickstart guide](https://docs.github.com/en/get-started/quickstart).

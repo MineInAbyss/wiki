@@ -1,13 +1,13 @@
 # IDE/Project Setup
 
-!!! note "Recommended IDE: [IntelliJ](https://www.jetbrains.com/idea/download)"
+!!! note "Recommended IDE: [:simple-intellijidea: IntelliJ](https://www.jetbrains.com/idea/download)"
     It has solid Kotlin support and we will only be able to help you resolve IDE problems in IntelliJ.
 
 Once installed, [Set up your JDK](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk) to use the latest OpenJDK version.
 
 ## Setting up a project
 
-Clone a project from GitHub and open it in IntelliJ. From there, it should start importing it as a Gradle project and you'll soon get syntax highlighting and be able to build your project.
+Clone a project from GitHub and open it in IntelliJ. From there, it should start importing it as a [:simple-gradle: Gradle](https://docs.gradle.org/) project and you'll soon get syntax highlighting and be able to build your project.
 
 !!! note "Note: Working on multiple projects"
     You may use our [composite master project](https://github.com/MineInAbyss/composite-master) to open several projects at once. Note it slows down build times, so you may wish to limit yourself to one at a time.
@@ -17,12 +17,12 @@ Clone a project from GitHub and open it in IntelliJ. From there, it should start
 You do not need to install anything to build. You can do it from command line or IntelliJ (running builds through IntelliJ will be more convenient)
 
 ### From a terminal
-=== "Windows"
+=== ":simple-windows: Windows"
     ```shell
     cd <insert project directory here>
     gradlew.bat build
     ```
-=== "MacOS/Linux"
+=== ":simple-apple: :simple-linux: MacOS/Linux"
     ```shell
     cd <insert project directory here>
     ./gradlew build
