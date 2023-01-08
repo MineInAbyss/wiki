@@ -6,3 +6,7 @@ An overview of everything ECS and people's different approaches.
 A guide about the design of Flecs by its creator.
 - [ECS back and forth](https://skypjack.github.io/2019-02-14-ecs-baf-part-1/)<br>
 An overview of ECS and many performance tricks used by the creator of EnTT.
+- The Flecs Discord server<br>
+It has channels for making your own ECS. You can find it on [their homepage](https://www.flecs.dev/flecs/).
+- [Overwatch gameplay architecture and netcode](https://www.youtube.com/watch?v=W3aieHjyNvw)<br>
+  A talk that goes into *what* you can do with an ECS and some design decisions behind the one Overwatch uses.
