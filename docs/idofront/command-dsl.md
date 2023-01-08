@@ -1,5 +1,5 @@
 # Command DSL
-!!! info "Package [![](https://img.shields.io/maven-metadata/v?label=idofront-commands&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-commands/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-commands)"
+[:simple-gradle: ![](https://img.shields.io/maven-metadata/v?label=idofront-commands&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-commands/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-commands)
 
 
 Idofront provides a clean way of creating custom command structures through a DSL. This feature is currently very experimental.

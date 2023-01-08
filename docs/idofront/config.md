@@ -1,5 +1,5 @@
 # Config 
-!!! info "Package [![](https://img.shields.io/maven-metadata/v?label=idofront-config&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-config/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-config)"
+[:simple-gradle: ![](https://img.shields.io/maven-metadata/v?label=idofront-config&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-config/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-config)
 
 Idofront-config lets you easily define a config using [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization), supporting yaml, json, and other formats automatically.
 

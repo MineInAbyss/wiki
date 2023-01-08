@@ -1,6 +1,6 @@
 # Developer Usage
 
-!!! info "Package [![](https://img.shields.io/maven-metadata/v?label=idofront-platform-loader&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-platform-loader/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-platform-loader)"
+[:simple-gradle: ![](https://img.shields.io/maven-metadata/v?label=idofront-platform-loader&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-platform-loader/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-platform-loader)
 
 ### What problems do platforms solve?
 

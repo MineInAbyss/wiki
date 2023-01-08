@@ -1,3 +1,5 @@
+# Geary
+
 [:simple-github: GitHub](https://github.com/MineInAbyss/Geary)
 [:simple-kotlin: KDoc](https://mineinabyss.com/Geary/)
 

@@ -1,3 +1,5 @@
+# Plugin version list
+
 ## Dependencies
 - [`geary-papermc-core`![](https://img.shields.io/maven-metadata/v?label=&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/geary-papermc-core/maven-metadata.xml){ style="vertical-align:middle" }](https://github.com/MineInAbyss/Geary)
 - [`geary-commons-papermc`![](https://img.shields.io/maven-metadata/v?label=&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/geary-commons-papermc/maven-metadata.xml){ style="vertical-align:middle" }](https://github.com/MineInAbyss/Geary-addons)

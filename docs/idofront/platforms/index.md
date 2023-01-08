@@ -1,4 +1,4 @@
-# About
+# Platforms
 
 Platforms make it easy to reuse dependencies across plugins, while preventing interference with other plugins.
 

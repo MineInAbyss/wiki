@@ -1,11 +1,19 @@
+---
+hide:
+- toc
+- navigation
+- title
+---
+
 # Mine in Abyss Wiki
 
 Welcome to the Mine in Abyss Wiki. We keep documentation and setup instructions for our coding projects here!
+We have different projects listed on top, as well as ongoing documentation for devs working on our projects.
+
+[About Mine in Abyss](https://mineinabyss.com){ .md-button .md-button--primary }
+[I want to help](contributing){ .md-button }
 
 ## FAQ
-
-!!! question "I want to help, where do I start?"
-    Check out the [Contributing](contributing) tab for resources to learn coding, setup a local server, and contribute code to our projects.
 
 !!! question "Can I use your code in my projects?"
     We try to keep everything we make open source, mostly under the very permissive MIT license which allows you to use and extend upon our plugins without asking. Be sure to read a project's license for specific details.

@@ -7,8 +7,8 @@ theme:
     - navigation.tabs
     - content.code.annotate
     - content.tabs.link
-    #    - navigation.indexes
-    #    - navigation.sections
+    - navigation.indexes
+    - navigation.sections
     - navigation.top
   font:
     text: Inter

@@ -1,4 +1,3 @@
-- [About](index.md)
 - *.md
 - guide*/
 - [Backend](backend/)

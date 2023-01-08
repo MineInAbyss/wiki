@@ -1,4 +1,4 @@
-- systems*.md
+- [Systems](index.md)
 - families*.md
 - queries*.md
 - repeating-systems*.md

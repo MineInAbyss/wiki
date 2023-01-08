@@ -1,4 +1,5 @@
-- intro*.md
 - resources*.md
+- core*/
+- future-plans*/
 - *md
 - */

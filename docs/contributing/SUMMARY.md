@@ -2,5 +2,4 @@
 - join-a-project*.md
 - [Learn to Code](learn/)
 - [Setup](setup/)
-- code*.md
 - *.md

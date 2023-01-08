@@ -1,7 +1,6 @@
+[:simple-gradle: ![](https://img.shields.io/maven-metadata/v?label=idofront-gradle&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-gradle/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-gradle)
 
-!!! info "Package [![](https://img.shields.io/maven-metadata/v?label=idofront-gradle&metadataUrl=https://repo.mineinabyss.com/releases/com/mineinabyss/idofront-gradle/maven-metadata.xml){ style="vertical-align:middle" }](https://repo.mineinabyss.com/#/releases/com/mineinabyss/idofront-gradle-loader)"
-
-We use Gradle plugins to reuse configuration code (ex. to easily publish to our Maven repo.) Under the hood, we use the [Kotlin DSL plugin](https://docs.gradle.org/current/userguide/kotlin_dsl.html#sec:kotlin-dsl_plugin) to write our plugins concisely. These sorts of plugins are called 'conventions plugins', presumably because they set conventions to be used across projects.
+We use Gradle plugins to reuse configuration code (ex. to easily publish to our Maven repo.) Under the hood, we use the [Kotlin DSL plugin](https://docs.gradle.org/current/userguide/kotlin_dsl.html#sec:kotlin-dsl_plugin) to write our plugins concisely. These sorts of plugins are called *conventions plugins*.
 
 ## Usage
 
@@ -12,9 +11,15 @@ pluginManagement {
         gradlePluginPortal()
         // Add our repository to be able to access the plugin
         maven("https://repo.mineinabyss.com/releases")
-    }    
-    
-    //Use same version across all plugins
+    }
+}
+```
+
+Apply a plugin in your `plugins { }` block. All of them start with `com.mineinabyss.conventions`. We recommend you use aliases as described in the [catalog](catalog.md) page to add our plugins. Apply them using `libs.plugins.idofront.x.y.z`.
+
+??? tip "Tip: If you don't wish to use plugin aliases"
+    you can force a version for all plugins in `pluginManagement`, so you don't have to manually specify it each time:
+    ```kotlin
     val idofrontConventions: String by settings
     resolutionStrategy {
         eachPlugin {
@@ -22,29 +27,25 @@ pluginManagement {
                 useVersion(idofrontConventions)
         }
     }
-}
-```
+    ```
 
-Apply a plugin in your `plugins { }` block. All of them start with `com.mineinabyss.conventions`
+    Be sure to specify the `idofrontConventions` version in `gradle.properties`:
 
-```kotlin
-plugins {
-  id("com.mineinabyss.conventions.SOMETHING")
-}
-```
+    ```properties
+    idofrontConventions=<x.y.z>
+    ```
+
+    See maven badge at the top for the latest version.
+
 
 !!! note
     Some conventions have extra config options that may be specified in your gradle.properties, they are explained further down.
 
-If you're using the `resolutionStrategy` block, be sure to specify the `idofrontConventions` version in `gradle.properties`:
+## Available plugins and options
 
-```properties
-idofrontConventions=<x.y.z>
-```
-
-See maven badge at the top for the latest version.
-
-## Conventions
+!!! note
+    Add plugin options to your `gradle.properties` file.
+    We hope to move to gradle's native configuration solution soon.
 
 ### `com.mineinabyss.conventions.copyjar`
 

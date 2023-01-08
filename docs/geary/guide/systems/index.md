@@ -1,5 +1,3 @@
-# Intro to systems
-
 We have a modular way to store data thanks to entities and components. Now, let's think about how we can work with that data to make things happen.
 
 ## Component matching
