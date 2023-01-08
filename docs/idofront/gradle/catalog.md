@@ -46,7 +46,7 @@ plugins {
 
 ## Common errors
 
-??? error "Plugin is already on the classpath"
+??? failure "Plugin is already on the classpath"
     Error resolving plugin <name>
 
     The request for this plugin could not be satisfied because the plugin is already on the classpath with an unknown version, so compatibility cannot be checked.
@@ -62,7 +62,7 @@ plugins {
 
 ---
 
-!!! error "Expecting an expression"
+!!! failure "Expecting an expression"
 
 You may get an error if no configuration comes after the `plugins` block. In this case add an empty run statement like so:
 
@@ -75,8 +75,8 @@ run {}
 
 ---
 
-??? error "LibrariesForLibs does not exist"
+??? failure "LibrariesForLibs does not exist"
     org.gradle.api.UnknownDomainObjectException: Extension of type 'LibrariesForLibs' does not exist.
 
-It is likely that one of our conventions plugins tried to read versions from the catalog via the `libs` variable, but it either hasn't been registered, or has been registered under a different name. See the note under [Dependencies](#dependencies).
+It is likely that one of our conventions plugins tried to read versions from the catalog via the `libs` variable, but it either hasn't been registered, or has been registered under a different name. Follow the instructions in [Using plugins from the catalog](#using-plugins-from-the-catalog).
 
