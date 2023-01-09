@@ -38,7 +38,7 @@ dependencies {
 ## Using plugins from the catalog
 
 ```kotlin
-@Suppress("DSL_SCOPE_VALIDATION") // The IDE shows an error without this that doesn't actually cause problems
+@Suppress("DSL_SCOPE_VIOLATION") // The IDE shows an error without this that doesn't actually cause problems
 plugins {
     alias(libs.plugins...)
 }
@@ -67,7 +67,7 @@ plugins {
 You may get an error if no configuration comes after the `plugins` block. In this case add an empty run statement like so:
 
 ```kotlin
-@Suppress("DSL_SCOPE_VALIDATION")
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins { ... }
 
 run {}
