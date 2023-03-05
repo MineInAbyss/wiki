@@ -7,6 +7,8 @@
 
 We use Docker to make images of servers that will run the same on any computer, which saves a lot of headaches! Follow [:simple-docker: Docker's install guide](https://docs.docker.com/get-docker/).
 
+On Windows you can run `winget install -e --id Docker.DockerDesktop` to get it. Learn more about winget [here](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+
 ## Create a docker compose file
 
 - Create a server directory wherever you like
