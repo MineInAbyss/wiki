@@ -44,34 +44,29 @@ Apply a plugin in your `plugins { }` block. All of them start with `com.mineinab
 ## Available plugins and options
 
 !!! note
-    Add plugin options to your `gradle.properties` file.
-    We hope to move to gradle's native configuration solution soon.
+    Plugins with configurable options use an extension with the same name as the plugin.
+
+### `com.mineinabyss.conventions.autoversion`
+
+- Appends version number from `RELEASE_VERSION` env variable to this project and subprojects. Used together with GitHub workflows for versioning.
+
+---
 
 ### `com.mineinabyss.conventions.copyjar`
 
-- Copies a generated `shadowJar` artifact to a specified path.
-
-```kotlin
-plugin_path: String // The path to copy the jar to. (should be set in global gradle.properties.)
-copyJar: Boolean = true // if false, will not run.
-```
+- Copies output artifact from `reobfJar` or `shadowJar` to a specified path marked in the `plugin_path` gradle property.
 
 ---
 
 ### `com.mineinabyss.conventions.kotlin`
 
-- Adds Kotlin and shadowjar plugins. Applies a Java platform of our common dependencies.
-- Adds a `kotlinVersion` property to the project and warns if the project already has such a property that doesn't match.
+- Adds the Kotlin with a version shared across our organization.
 
 ---
 
 ### `com.mineinabyss.conventions.papermc`
 
-Adds paper dependencies, process resources task which replaces `${plugin_version}` in plugin.yml with the project's `version`. Adds copyJar plugin.
-
-```kotlin
-serverVersion: String = <current server version we use> // the full Minecraft server version name.
-```
+- Adds Paper dependencies, process resources task which replaces `${plugin_version}` in plugin.yml with the project's `version`. Adds copyJar plugin.
 
 ---
 
@@ -83,14 +78,7 @@ serverVersion: String = <current server version we use> // the full Minecraft se
 
 ### `com.mineinabyss.conventions.publication`
 
-- Publishes to our maven repo with sources. Adds GitHub run number to the end of version.
-```kotlin
-runNumberDelimiter: String = "." // the characters to put in between the version and run number.
-addRunNumber: String = true // if false, will not add run number.
-publishComponentName: String = "java" // the name of the component to be published.
-mineinabyssMavenUsername: String
-mineinabyssMavenPassword: String
-```
+- Publishes to our maven repo with sources.
 
 ---
 
