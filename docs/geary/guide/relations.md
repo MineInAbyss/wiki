@@ -1,6 +1,6 @@
 # Relations
 
-We saw how Geary uses component types (classes like `Health`, `Location`) as a sort of key for setting or adding components. Geary treats components as entities so each one has a unique key, its id. Relations take advantage of this by combining two ids together.
+Geary treats components as entities, so each class gets a unique entity id. Relations take advantage of this by combining two ids together.
 
 !!! info "Definition: Relation"
 
@@ -26,7 +26,7 @@ We may use relations to avoid making many variations of the same component.
 
 For instance, if we had potion effects with a duration, instead of a `HealingDuration`, `StrengthDuration`, etc... we may use a single `Duration` component as a relation with any effect.
 
-## Adding/setting relations
+## Syntax
 
 Relations may be added or set just like components:
 

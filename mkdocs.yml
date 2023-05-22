@@ -10,6 +10,7 @@ theme:
     - navigation.indexes
     - navigation.sections
     - navigation.top
+    - navigation.footer
   font:
     text: Inter
     code: JetBrains Mono

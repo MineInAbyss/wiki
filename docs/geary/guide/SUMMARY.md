@@ -1,3 +1,4 @@
+- setup*.md
 - entities*.md
 - designing-components*.md
 - relations*.md

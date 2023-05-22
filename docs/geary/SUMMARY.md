@@ -1,3 +1,4 @@
 - *.md
-- guide*/
+- [Guide](guide/)
+- [Minecraft](minecraft/)
 - [Backend](backend/)

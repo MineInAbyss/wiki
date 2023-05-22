@@ -4,3 +4,6 @@ Welcome to the Mine in Abyss Wiki. This is a jekyll site that contains informati
 
 ## Building locally
 
+- Install Python
+- Run `pip install -r requirements.txt`
+- Run `mkdocs serve` to start a local server

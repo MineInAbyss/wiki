@@ -1,23 +1,57 @@
----
-title: Prefabs
-parent: Minecraft Guide
-grand_parent: Geary
-nav_order: 10
----
+# Prefabs
 
-# Prefabs and Configuration
+Geary will load entities from supported formats (currently `yml`) inside `plugins/Geary/<namespace>/.../prefabname.yml`
 
-A core part of Geary is being able to create a *type* of entity, which can then be reused many times in-game. We call these entity types `Prefabs`.
+It's also possible to load manually using `prefabs.loader.loadFromPath()` and add new formats in the addon dsl and an implementation of the `Format` class:
 
-The entities we create from a prefab are called `instances`. A prefab instance is the actual item or mob you see in a game, while the prefab is like a blueprint for it.
+```kotlin
+geary {
+    serialization {
+        format("json") { module -> ... }
+    }
+}
+```
 
-Interestingly, a prefab itself is a regular old entity (with the exception that no systems ever run on it.) Therefore, we can think of a prefab as a list of components - and if all those components are serializable - we can actually configure prefabs by hand in a file!
+## Configuring prefabs
+
+Geary comes with `geary:set.entity_type` and `geary:set.item` components which allow a prefab to be instantiated. Here are example config files:
+
+!!! tip
+    We have plugins that provide many extra components to help you configure prefabs, see our [Readme on GitHub](https://github.com/MineInAbyss/Geary-papermc#plugins-using-geary)
+
+### Mobs
+```yaml
+- !<geary:set.entity_type>
+  key: minecraft:iron_golem
+```
+
+### Items
 
 
-## Prefab Files
+#### Player-instanced items
 
-Geary lets plugins specify a prefab folder. Every file inside will be loaded as a prefab. You can even organize files into more folders inside. The only limitation is that no two prefab files should have the same name.
+Items with one prefab that has a `geary:player_instanced_item` component will get one instance created per player. This instance won't be removed until all items of that instance are removed from the inventory
 
-Geary will automatically figure out what format to use based on the file extension. Currently, we encourage YAML, so files ending with `.yml`.
+#### Example
+```yaml
+- !<geary:player_instanced_item>
+- !<geary:set.item>
+  item:
+    type: PAPER
+    displayName: Chiseled Bookshelf Empty
+    customModelData: 2032
+```
 
-The configuration guide will go into detail on creating prefabs for custom items with Looty, and custom mobs with Mobzy this way.
+
+## Instantiation in code
+
+```kotlin
+val prefabKey: PrefabKey
+
+// Mobs
+val location: Location
+location.spawnFromPrefab(prefabKey)
+
+// Items
+val itemStack = itemTracking.provider.serializePrefabToItemStack(prefabKey)
+```

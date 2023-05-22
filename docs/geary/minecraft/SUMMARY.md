@@ -1,0 +1,7 @@
+- index*.md
+- setup*.md
+- persistentdatacontainer*.md
+- prefabs*.md
+- mobs*.md
+- items*.md
+- *
