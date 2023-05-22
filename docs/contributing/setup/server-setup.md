@@ -1,13 +1,10 @@
 # Server Setup
 
-!!! warning
-    Docker on Windows 11 may have issues with world corruption. Do not keep anything important on your server world!
-
 ## Install Docker
 
-We use Docker to make images of servers that will run the same on any computer, which saves a lot of headaches! Follow [:simple-docker: Docker's install guide](https://docs.docker.com/get-docker/).
+We use Docker to create a consistent server environment for everyone. Follow [:simple-docker: Docker's install guide](https://docs.docker.com/get-docker/).
 
-On Windows you can run `winget install -e --id Docker.DockerDesktop` to get it. Learn more about winget [here](https://learn.microsoft.com/en-us/windows/package-manager/winget/).
+On Windows you can run `winget install -e --id Docker.DockerDesktop` to get it. Learn more about winget [here](https://learn.microsoft.com/en-us/windows/package-manager/winget/). The Docker Desktop app is useful for starting/stopping your server and viewing logs, have a look through it later!
 
 ## Create a docker compose file
 
@@ -17,6 +14,7 @@ On Windows you can run `winget install -e --id Docker.DockerDesktop` to get it. 
 
 === "Simple server"
     ```yaml
+
     version: "3.9"
     services:
       minecraft:
@@ -24,23 +22,23 @@ On Windows you can run `winget install -e --id Docker.DockerDesktop` to get it. 
         container_name: papermc
         ports:
           - "25565:25565"
+          - "5005:5005"
         volumes:
           # Stores server files in a folder named papermc next to your compose.yml
-          - ./papermc:/data:rw
+          - ./papermc:/data
+          # Optionally, clone the server-config repo to work with configs locally
+          #- ./server-config:/server-config
         environment:
-            MEMORYSIZE: 2G
-            PAPERMC_FLAGS: "" # Shows colors in console
+            EULA: true # You're accepting the Minecraft EULA here!
+            TYPE: PAPER
+            VERSION: 1.19.4 # Change as needed
+            EXEC_DIRECTLY: true
+            USE_AIKAR_FLAGS: true
+            # Enables live debugging
+            JVM_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
         # Allows 'docker attach' to work
         stdin_open: true
         tty: true
-    ```
-
-??? info "Info: :penguin: Linux users"
-    Set your user/group id to avoid permission issues, ex:
-    ```yaml
-    environment:
-        PUID: 1000
-        PGID: 1000
     ```
 
 !!! tip
