@@ -2,4 +2,4 @@
 - join-a-project*.md
 - [Learn to Code](learn/)
 - [Setup](setup/)
-- *.md
+- [Other](other/)

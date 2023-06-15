@@ -1,6 +1,6 @@
 - [Home](index.md)
-- [Dev](dev/)
 - [Contributing](contributing/)
+- [Dev Notes](dev/)
 - [Geary](geary/)
 - [DeeperWorld](deeperworld/)
 - [Idofront](idofront/)
