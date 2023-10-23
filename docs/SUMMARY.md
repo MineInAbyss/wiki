@@ -2,5 +2,5 @@
 - [Contributing](contributing/)
 - [Dev Notes](dev/)
 - [Geary](geary/)
-- [DeeperWorld](deeperworld/)
 - [Idofront](idofront/)
+- [Other Plugins](other-plugins/)
