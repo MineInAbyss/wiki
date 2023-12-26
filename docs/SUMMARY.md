@@ -2,5 +2,6 @@
 - [Contributing](contributing/)
 - [Dev Notes](dev/)
 - [Geary](geary/)
+- [Geary for Minecraft](geary-minecraft/)
 - [Idofront](idofront/)
 - [Other Plugins](other-plugins/)

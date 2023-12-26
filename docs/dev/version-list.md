@@ -1,5 +1,7 @@
 # Plugin version list
 
+- [Preferred gradle version](https://github.com/MineInAbyss/Idofront/blob/master/gradle/wrapper/gradle-wrapper.properties)
+
 ## Dependencies
 - [`geary`![](https://img.shields.io/github/v/release/MineInAbyss/geary-papermc){ style="vertical-align:middle" }][geary-papermc]
 - [`idofront`![](https://img.shields.io/github/v/release/MineInAbyss/idofront){ style="vertical-align:middle" }][idofront]

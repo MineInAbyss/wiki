@@ -1,4 +1,3 @@
-- index*.md
 - setup*.md
 - persistentdatacontainer*.md
 - prefabs*.md
