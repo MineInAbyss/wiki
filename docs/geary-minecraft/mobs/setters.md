@@ -1,5 +1,9 @@
 Setters, will try to update Minecraft data whenever the entity is added to world. For example, when the mob spawns, or when a chunk loads. Plugins or vanilla interactions can change the size after, but it will always return to the set value when the chunk is reloaded. We look at a common list provided by Mobzy.
 
+```yaml
+namespaces: [ mobzy ]
+```
+
 ## Any entity
 
 ### Always show name
@@ -83,17 +87,24 @@ set.breakDownDoor: false
 
 ### Wool color
 
-Sets the sheep's wool color. Can be any value for [DyeColor](https://jd.papermc.io/paper/1.20/org/bukkit/DyeColor.html)
+Sets the sheep's wool color. 
 
 ```yaml
-set.woolColor: RED
+set.woolColor: RED # (1)!
 ```
+
+1. Can be any value in [DyeColor](https://jd.papermc.io/paper/1.20/org/bukkit/DyeColor.html)
 
 
 ## Projectiles
 
 ### Display item
 
+Sets the item a projectile like a snowball should display.
+
 ```yaml
-set.projectileItem
+set.projectileItem:
+  item: ... # !(1)
 ```
+
+1. A SerializableItemStack

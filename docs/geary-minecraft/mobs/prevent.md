@@ -1,29 +1,32 @@
 Components that override vanilla behaviour, provided by Mobzy. Most of these will listen to events and cancel them.
 
+```yaml
+namespaces: [ mobzy ]
+```
+
 ## Any entity
 
-### Interaction
+#### Interaction
 
 Prevents different types of interaction. If passed list is empty, will prevent all.
 
 ```yaml
-prevent.interaction: [ ATTACK ]
+prevent.interaction: [ ATTACK ] # (1)!
 ```
 
-!!! info "Available options: `ATTACK`, `RIGHT_CLICK`"
+1. Available options: `ATTACK`, `RIGHT_CLICK`
 
-### Regeneration
+#### Regeneration
 
 Prevents different types of regeneration events. If passed list is empty, will prevent all.
 
 ```yaml
-prevent.regeneration: [ REGEN, MAGIC ]
+prevent.regeneration: [ REGEN, MAGIC ] # (1)!
 ```
 
-!!! info "Available options: any
-of [EntityRegainHealthEvent.RegainReason](https://jd.papermc.io/paper/1.20/org/bukkit/event/entity/EntityRegainHealthEvent.RegainReason.html)"
+1. Available options: any of [EntityRegainHealthEvent.RegainReason](https://jd.papermc.io/paper/1.20/org/bukkit/event/entity/EntityRegainHealthEvent.RegainReason.html)"
 
-### Prevent riding
+#### Prevent riding
 
 Cancels VehicleEnterEvent on this entity.
 
@@ -33,7 +36,7 @@ prevent.riding: true
 
 ## Animals
 
-### Breeding
+#### Breeding
 
 Cancels EntityEnterLoveModeEvent and EntityBreedEvent.
 
