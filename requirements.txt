@@ -1,3 +1,4 @@
 mkdocs-material
 mkdocs-literate-nav
 mkdocs-redirects
+mkdocs-ezlinks-plugin

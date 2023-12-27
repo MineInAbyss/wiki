@@ -1,3 +1,5 @@
 - [Config](config/)
 - [Mobs](mobs/)
+- [Items](items/)
+- [Blocks](blocks/)
 - [Developers](developers/)

@@ -52,7 +52,7 @@ set.collidable: false
 ```
 ### Equipment
 
-Sets equipment on the entity, all items defined by [SerializableItemStack]()
+Sets equipment on the entity, all slots are a [[Serializable Item]]
 ```yaml
 set.equipment:
   helmet: ...
@@ -100,11 +100,9 @@ set.woolColor: RED # (1)!
 
 ### Display item
 
-Sets the item a projectile like a snowball should display.
+Sets the [[Serializable Item]] a projectile like a snowball should display.
 
 ```yaml
 set.projectileItem:
-  item: ... # !(1)
+  item: ...
 ```
-
-1. A SerializableItemStack
