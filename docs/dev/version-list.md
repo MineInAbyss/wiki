@@ -24,7 +24,7 @@
 - [`stamina-climb`![](https://img.shields.io/github/v/release/MineInAbyss/staminaclimb){ style="vertical-align:middle" }][staminaclimb]
 - [`bonehurtingjuice`![](https://img.shields.io/github/v/release/MineInAbyss/bonehurtingjuice){ style="vertical-align:middle" }][bonehurtingjuice]
 
-# Dependants tree
+## Dependants tree
 
 Deeper items depend on shallower items.
 

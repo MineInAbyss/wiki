@@ -1,6 +1,8 @@
 site_name: Mine in Abyss
 site_url: https://mineinabyss.com/
+repo_name: MineInAbyss/wiki
 repo_url: https://github.com/MineInAbyss/wiki/
+edit_uri: edit/master/docs/
 theme:
   features:
     - navigation.instant
@@ -13,6 +15,7 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.prune
+    - content.action.edit
   font:
     text: Inter
     code: JetBrains Mono
@@ -55,6 +58,7 @@ plugins:
   - literate-nav:
       nav_file: SUMMARY.md
   - search
+  - table-reader
   - ezlinks
   - redirects:
       redirect_maps:

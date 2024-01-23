@@ -1,0 +1,19 @@
+- Name: "`on.damaged`"
+  Desc: Entity is damaged by another entity
+  Extra targets: "`damager`"
+
+- Name: "`on.damageOther`"
+  Desc: Entity damages another entity
+  Extra targets: null
+
+- Name: "`on.death`"
+  Desc: Entity dies
+  Extra targets: null
+
+- Name: "`on.sheared`"
+  Desc: Entity gets sheared
+  Extra targets: null
+
+- Name: "`on.spawn`"
+  Desc: Entity spawned
+  Extra targets: null

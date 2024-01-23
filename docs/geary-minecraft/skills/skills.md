@@ -47,9 +47,7 @@ skills:
 
 ## Event
 
-The `event` tag defines triggers for your skills. You may find a list of event sources and their associated entities in [[Events]]. Specifying multiple events at once is not yet supported, but a global skill entity may be defined and called.
-
-This tag follows ususal component format, with namespaces optionally imported.
+The `event` tag defines triggers for your skills. You may find a list of event sources and their associated entities in [[Events]].
 
 ## Using
 
