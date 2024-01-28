@@ -15,7 +15,8 @@
 - [`looty`![](https://img.shields.io/github/v/release/MineInAbyss/looty){ style="vertical-align:middle" }][looty]
 - [`mobzy`![](https://img.shields.io/github/v/release/MineInAbyss/mobzy){ style="vertical-align:middle" }][mobzy]
 - [`emojy`![](https://img.shields.io/github/v/release/MineInAbyss/emojy){ style="vertical-align:middle" }][emojy]
-- [`packy`][packy]
+- [`packy`![](https://img.shields.io/github/v/release/MineInAbyss/packy){ style="vertical-align:middle" }][packy]
+- [`extracommands`![](https://img.shields.io/github/v/release/MineInAbyss/ExtraCommands){ style="vertical-align:middle" }][extracommands]
 
 ## Server plugins
 - [`bonfire`![](https://img.shields.io/github/v/release/MineInAbyss/bonfire){ style="vertical-align:middle" }][bonfire]
@@ -53,6 +54,7 @@ Deeper items depend on shallower items.
 [looty]: https://github.com/MineInAbyss/Looty/releases
 [mobzy]: https://github.com/MineInAbyss/Mobzy/releases
 [emojy]: https://github.com/MineInAbyss/Emojy/releases
+[extracommands]: https://github.com/MineInAbyss/ExtraCommands/releases
 
 [bonfire]: https://github.com/MineInAbyss/Bonfire/releases
 [deeperworld]: https://github.com/MineInAbyss/DeeperWorld/releases
