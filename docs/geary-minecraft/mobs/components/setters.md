@@ -1,4 +1,5 @@
-Setters, will try to update Minecraft data whenever the entity is added to world. For example, when the mob spawns, or when a chunk loads. Plugins or vanilla interactions can change the size after, but it will always return to the set value when the chunk is reloaded. We look at a common list provided by Mobzy.
+!!! tip
+    Setters are all actions that run on entity load or death, but can also be used in [[Skills]].
 
 ```yaml
 namespaces: [ mobzy ]
@@ -35,6 +36,18 @@ set.attributes:
   maxHealth: 30.0
   movementSpeed: 1.2
   spawnReinforcements: 0.0
+```
+
+### Potion effects
+
+```yaml
+set.potion_effects:
+  - type: minecraft:speed
+    duration: 7s
+    amplifier: 10
+  - type: minecraft:jump_boost
+    duration: 7s
+    amplifier: 3
 ```
 
 ### Can pick up items
