@@ -1,6 +1,4 @@
-- setup*.md
-- persistentdatacontainer*.md
-- prefabs*.md
-- mobs*.md
-- items*.md
-- *
+- [Setup](index.md)
+- [Persistent data](persistentdatacontainer.md)
+- [Prefabs](prefabs.md)
+- [Tracked entities](tracked-entities/)

@@ -1,5 +1,6 @@
 - [Welcome](index.md)
 - join-a-project*.md
+- [Quickstart](quickstart.md)
 - [Learn to Code](learn/)
 - [Setup](setup/)
 - [Other](other/)

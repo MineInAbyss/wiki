@@ -1,3 +1,3 @@
-- [Intro](intro.md)
+- [Config Intro](index.md)
 - [File structure](file-structure.md)
 - *.md

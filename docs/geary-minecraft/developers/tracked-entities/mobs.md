@@ -1,4 +1,4 @@
-# Interacting with mobs
+# Mobs
 
 !!! note
     To avoid confusion, Geary comes with a `BukkitEntity` typealias for Bukkit's `Entity` interface.

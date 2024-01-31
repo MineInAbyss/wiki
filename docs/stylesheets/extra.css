@@ -17,3 +17,7 @@
 .md-typeset h3 {
     margin: 1.1em 0 0.8em !important;
 }
+
+.md-grid {
+    max-width: 1440px;
+}

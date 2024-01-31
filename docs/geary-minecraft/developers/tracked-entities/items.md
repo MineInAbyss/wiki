@@ -1,4 +1,4 @@
-# Interacting with items
+# Items
 
 Geary provides item tracking in player inventories. For any other case, you may use the item's [PDC](../persistentdatacontainer) to read/write data, but no entity will be tracked in Geary.
 

@@ -1,4 +1,4 @@
-# Using persistent data containers
+# Persistent data
 
 The module `geary-papermc-datastore` (included in `geary-papermc`) provides functions for encoding and decoding serializable classes (using [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)) for any persistent data container.
 

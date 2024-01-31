@@ -1,5 +1,5 @@
-- [Skills](skills.md)
+- [Skills](index.md)
 - [Events](events/)
-- [Derived Variables](derived-variables.md)
+- [Variables](variables/)
 - [Conditions](conditions/)
 - [Actions](actions/)

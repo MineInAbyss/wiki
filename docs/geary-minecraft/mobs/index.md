@@ -1,3 +1,5 @@
+# Mobs
+
 Any mob prefab must have a component that provides a Minecraft entity.
 
 ## Vanilla type
