@@ -49,57 +49,27 @@ skills:
 
 The `event` tag defines triggers for your skills. You may find a list of event sources and their associated entities in [[Events]].
 
-## Using
+## Target selector
 
-The `using` tag defines the entity to run actions on, internally we call this the `target`. [[Events]] have a list of possible entities to use, these are carried down to subskills, and subskills may swap back and forth between these targets as needed.
+The `using` tag defines the entity to run actions on. We call this the `target`. [[Events]] provide some targets based on involved entities, but these can also be manually specified (ex nearby entities.)
 
-This tag follows ususal component format, with namespaces optionally imported.
+See [[Target selectors]] for more info.
 
 ## Variables
 
 The `vars` tag defines a list of variables to be used in actions. Not all actions support using variables, but almost always, locations or other entity references will support variables.
 
-Each variable specifies a type, followed by a camelCased name, and may be specified in one of three ways:
-
-### Inline
-
-Since all types are just component references, they may be defined like any serializable component:
-
-```yaml
-vars:
-  - string name: "Just a string"
-  - int age: 42
-  - geary:playSound extinguish:
-      sound: minecraft:entity.generic.extinguish_fire
-```
-
-### References
-
-Variables may reference other variables defined before them
-```yaml
-vars:
-  - string name: $otherName
-```
-
-### Derived
-
-Derived variables run an event that reads data on a target. These are useful for getting data from your events. See [[Derived Variables]] for a list of options.
-
-```yaml
-using: itemHolder
-vars:
-  # Read the location of itemHolder
-  - derived location targetLoc:
-      read.location: { }
-```
+See [[Variables]] for more info.
 
 ## Conditions
 
-The `conditions` tag defines a list of conditions that must be met for this skill to run. See [[Conditions]] for more info.
+The `conditions` tag defines a list of conditions that must be met for this skill to run.
+
+See [[Conditions]] for more info.
 
 ## Actions
 
-Actions get executed when the skill runs. They are defined as extra component keys, with namespaces optionally imported. Some actions support passing variables into them, and some require the `used` entity to be a certain type (ex. a Zombie or an item).
+Actions get executed when the skill runs. They are defined as extra component keys, with namespaces optionally imported.
 
 See [[Actions]] for a list of actions you may use.
 

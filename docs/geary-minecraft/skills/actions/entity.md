@@ -1,5 +1,11 @@
 # Entity actions
 
+Entity actions require the target entity (defined by `using`) to be a Minecraft entity.
+
+```yaml
+namespaces: [ geary ]
+```
+
 ### Damage
 
 ```yaml

@@ -1,5 +1,7 @@
 # Actions
 
+Actions get executed when a skill runs. They are defined as extra component keys, with namespaces optionally imported. Some actions support passing variables into them, and some require the used entity to be a certain type (ex. a Zombie or an item).
+
 !!! tip
     All setters for mobs are valid actions (ex. `set.woolColor`), if present directly on a prefab, they will simply choose a default event trigger (usually on spawn or death.)
 

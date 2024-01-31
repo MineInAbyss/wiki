@@ -2,6 +2,10 @@
 
 These actions take a location parameter that supports variables.
 
+```yaml
+namespaces: [ geary ]
+```
+
 ### Spawn entity
 
 ```yaml

@@ -1,5 +1,6 @@
 - [Skills](index.md)
 - [Events](events/)
+- [Target selectors](target-selectors/)
 - [Variables](variables/)
 - [Conditions](conditions/)
 - [Actions](actions/)
