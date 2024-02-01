@@ -2,5 +2,6 @@
 - [Build matrix](build-matrix.md)
 - [Dev](index.md)
 - [Conventions](conventions/)
+- [Setup](setup/)
 - [Updating Dependencies](updating-deps/)
 - [Gradle](gradle/)

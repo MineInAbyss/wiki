@@ -14,60 +14,12 @@ On Windows you can run `winget install -e --id Docker.DockerDesktop` to get it. 
 
 === "Simple server"
     ```yaml
-
-    version: "3.9"
-    services:
-      minecraft:
-        image: ghcr.io/mineinabyss/papermc_dev:master
-        container_name: papermc
-        ports:
-          - "25565:25565"
-          - "5005:5005"
-        volumes:
-          # Stores server files in a folder named papermc next to your compose.yml
-          - ./papermc:/data
-          # Optionally, clone the server-config repo to work with configs locally
-          #- ./server-config:/server-config
-        environment:
-            EULA: true # You're accepting the Minecraft EULA here!
-            TYPE: PAPER
-            VERSION: 1.19.4 # Change as needed
-            EXEC_DIRECTLY: true
-            USE_AIKAR_FLAGS: true
-            # Enables live debugging
-            JVM_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
-        # Allows 'docker attach' to work
-        stdin_open: true
-        tty: true
+    --8<-- "docker-compose.yml"
     ```
+
 
 !!! tip
     You may wish to turn certain features on or off for your server (ex. auto updating plugins.) We list all supported `environment` options for our containers [here](https://github.com/MineInAbyss/Docker).
-
-## Auto download plugins
-
-The dev image comes with [Keepup](https://github.com/MineInAbyss/Keepup/), our tool for managing plugins. It will automatically download our latest plugin config file to `keepup/mineinabyss.conf` and merge it with `keepup/local.conf`. You can inherit plugins from mineinabyss in `local.conf` as follows:
-
-#### Inherit plugins from specific server
-```json
-local: ${mineinabyss.servers.survival}
-```
-
-#### Inherit multiple parts
-```json
-local: ${mineinabyss.core} ${mineinabyss.plugins}
-```
-
-#### Add your own plugins, or inherit specific ones
-```json
-local: ${mineinabyss.core} {
-  some-plugin: "https://..."
-  blocky: ${mineinabys.plugins.blocky}
-}
-```
-
-!!! note
-    Keepup will not install a plugin if a similar one already exist in your plugins folder. So if you build a plugin locally, your version will be used. Remember to delete the file if you want updates!
 
 ## Running the server
 

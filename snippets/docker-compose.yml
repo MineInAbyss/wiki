@@ -1,0 +1,34 @@
+version: "3"
+services:
+  mineinabyss:
+    image: ghcr.io/mineinabyss/minecraft:master
+    container_name: mineinabyss
+    ports:
+      - "25565:25565"
+      - "5005:5005" # For debugging
+      - "8082:8082" # Packy server port
+    environment:
+      SERVER_NAME: "dev" # Defines what plugins and configs to pull, dev is a reasonable option
+      EULA: true
+      TYPE: PAPER
+      VERSION: "1.20.4"
+      EXEC_DIRECTLY: true
+      USE_AIKAR_FLAGS: true
+      JVM_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005" # Enables live debugging
+      PACKY_PUBLIC_ADDRESS: http://localhost:8082
+      ANSIBLE_PULL_BRANCH: "prod" # develop may also be useful
+      # Options you can fiddle with
+      # ANSIBLE: "false" # Disable server config copying
+      # ANSIBLE_PULL: "false" # Don't pull (use local config for testing)
+      # KEEPUP: "false" # Disable plugin downloads
+      # KEEPUP_OVERRIDE_GITHUB_RELEASE: "LATEST" # Auto download latest releases/snapshots for plugins
+      # KEEPUP_JSON_PATH: "mineinabyss.production-basic" # Set exact plugins to pull
+    volumes:
+      # Change location as needed, relative paths are supported
+      - "/opt/docker/data/minecraft/mineinabyss:/data"
+      - "/opt/docker/data/minecraft/server-config:/server-config"
+        # Replace with the path to your local config for testing
+        # - "~/projects/server-config:/server-config"
+    # Allows 'docker attach' to work
+    stdin_open: true
+    tty: true

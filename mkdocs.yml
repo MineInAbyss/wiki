@@ -41,6 +41,8 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: snippets
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.tabbed:

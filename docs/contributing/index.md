@@ -5,7 +5,7 @@ This section explains how to start coding with us! We look at how to find a team
 !!! note
     If you wish to contribute with other aspects of the project, such as art, design, or building, check out [mineinabyss.com/contributing](https://mineinabyss.com/contributing).
 
-!!! info "Discord"
-    We have a coding section on our [:simple-discord: Discord](https://discord.gg/QXPCk2y). You can join the coding club to get updates on events and more.
+## Join a Project
 
-[//]: # (<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLMyCQwB_CBb4taPc7-m5Ke3JnaWc2Yp39" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
+- We use Discord to discuss projects, see [:simple-discord: `#plugin-dev`](https://discord.gg/QXPCk2y).
+- You can find ongoing projects or small tasks/bugs that need help on [:simple-notion: Notion](https://mineinabyss.notion.site/Public-Coding-Work-6c948d17ee3847cbabf781193421ceec?pvs=4), ask to be assigned on Discord!
