@@ -1,0 +1,15 @@
+- Name: "`on.itemLeftClick`"
+  Desc: Item got left clicked by its holder
+  Extra targets: "`itemHolder`"
+
+- Name: "`on.itemRightClick`"
+  Desc: Item got right clicked by its holder
+  Extra targets: "`itemHolder`"
+
+- Name: "`on.itemBreak`"
+  Desc: Item broke from durability loss
+  Extra targets: null
+
+- Name: "`on.itemConsumed`"
+  Desc: Item got consumed by a player
+  Extra targets: "`consumer`"
