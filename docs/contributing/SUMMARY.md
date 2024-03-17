@@ -1,5 +1,4 @@
 - [Welcome](index.md)
 - [Quickstart](quickstart.md)
 - [Learn to Code](learn/)
-- [Setup](setup/)
-- [Other](other/)
+- [Check out the dev docs](check-out-dev-docs.md)

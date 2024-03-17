@@ -4,7 +4,8 @@ We provide a [:simple-github: project template](https://github.com/MineInAbyss/p
 
 ## Licensing
 
-If you wish to host your project on the Mine in Abyss GitHub organization, we recommend licensing your work under an [MIT license](https://mit-license.org/) by adding a `LICENSE` file to your project. We choose this license because it makes it extremely easy for others to use and expand upon your code. You may use a stricter open source license if you can justify it.
+We don't enforce any specific license for Mine in Abyss related projects, but have some general recommendations:
 
-!!! note
-    This is a deep rabbit hole that I highly recommend you explore yourself when you get the time. If you're ever interested, consider reading through popular licenses like the GPL to get a more direct understanding of them.
+- Use [MIT](https://mit-license.org/) for libraries or less important plugins.
+- Use [AGPL](https://www.gnu.org/licenses/agpl-3.0.html) for plugins you don't want someone to be able to continue developing in a closed source manner. We recommend AGPL over GPL since plugins don't need to be installed by end users, and the GPL doesn't force someone to distribute source code in this case.
+- Use a [Creative Commons](https://chooser-beta.creativecommons.org/) license for non-code assets like textures or sounds (ex. we sometimes use the more restrictive NC variant that force non-commercial use.)

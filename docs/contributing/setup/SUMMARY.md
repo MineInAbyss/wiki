@@ -1,2 +1,0 @@
-- server-setup*
-- ide-setup*

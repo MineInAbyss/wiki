@@ -3,5 +3,5 @@
 - [Dev](index.md)
 - [Conventions](conventions/)
 - [Setup](setup/)
-- [Updating Dependencies](updating-deps/)
-- [Gradle](gradle/)
+- [Dependencies](deps/)
+- [Server management](server-management/)
