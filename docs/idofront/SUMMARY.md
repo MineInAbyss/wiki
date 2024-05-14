@@ -1,5 +1,4 @@
 - [About](index.md)
 - *.md
 - util*/
-- platforms*/
 - gradle*/

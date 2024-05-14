@@ -1,6 +1,5 @@
 - [Setup](setup.md)
-- [Quickstart](quickstart.md)
-- entities*.md
-- designing-components*.md
-- relations*.md
-- systems*
+- [Entities](entities.md)
+- [Designing Components](designing-components.md)
+- [Relations](relations.md)
+- [Systems](systems/)

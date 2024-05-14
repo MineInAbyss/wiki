@@ -1,3 +1,4 @@
 - *.md
+- [Quickstart](quickstart.md)
 - [Guide](guide/)
 - [Backend](backend/)
