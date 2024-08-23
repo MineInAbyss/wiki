@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: "player"
 type: Entity
 desc: Checks many conditions about a player, ex. sneaking, sprinting, flying...

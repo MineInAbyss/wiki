@@ -1,28 +1,10 @@
+---
+template: page-list.html
+filter: geary-minecraft/actions/actions/
+---
+
 # Actions
 
-Actions get executed when a skill runs. They are defined as extra component keys, with namespaces optionally imported. Some actions support passing variables into them, and some require the used entity to be a certain type (ex. a Zombie or an item).
+An action performs a single effect in the game. They are used by the action system to define what happens on different events, ex. when a player right-clicks a custom item.
 
-!!! tip
-    All setters for mobs are valid actions (ex. `set.woolColor`), if present directly on a prefab, they will simply choose a default event trigger (usually on spawn or death.)
-
-## General actions
-
-### Run skills
-
-Runs skills, finding them by prefab name. Create a new prefab and add a skill using the `geary:skill` component, then reference it by file name.
-
-```yaml
-runSkills:
-    - "myproject:some_skill"
-    - "justASkillName"
-```
-
-### Run MythicMobs skills
-
-Runs MythicMobs skills. These can be tested with the `mm test cast` command and should copy its behaviour. We're planning to add support for MM's built in mechanic syntax.
-
-```yaml
-runMythicSkills:
-    - "skill1"
-    - "skill2"
-```
+## Available actions

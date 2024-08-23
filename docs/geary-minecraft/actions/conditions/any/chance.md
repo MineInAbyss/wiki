@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: chance
 type: Any
 desc: Randomly succeeds based on a passed percentage

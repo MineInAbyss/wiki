@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: maxNearby
 type: Block
 desc: Checks whether there are too many entities of a certain type near this block

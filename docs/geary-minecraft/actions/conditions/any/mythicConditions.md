@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: mythicConditions
 type: Any
 desc: Runs MythicMobs condition list

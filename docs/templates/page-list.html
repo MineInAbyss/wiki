@@ -13,12 +13,12 @@
         </tr>
     </thead>
     <tbody>
-    {% for page in nav.pages|sort(attribute='title') %}
-    {% if page.url.startswith("geary-minecraft/actions/conditions/") and page.meta.desc %}
+    {% for entry in nav.pages|sort(attribute='title') %}
+    {% if entry.url.startswith(page.meta.filter) and entry.meta.desc %}
     <tr>
-        <td><a href="/{{ page.url }}">{{ page.title }}</a></td>
-        <td><code>{{ page.meta.type }}</code></td>
-        <td>{{ page.meta.desc }}</td>
+        <td><a href="/{{ entry.url }}">{{ entry.title }}</a></td>
+        <td><code>{{ entry.meta.type }}</code></td>
+        <td>{{ entry.meta.desc }}</td>
     </tr>
     {% endif %}
     {% endfor %}

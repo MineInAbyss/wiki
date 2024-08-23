@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: hasConsumable
 type: Entity
 desc: Checks whether the entity's inventory has a specified item

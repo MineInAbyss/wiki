@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: "blockBelow"
 type: Block
 desc: Checks material of the block below

@@ -22,7 +22,7 @@
     <tr>
         <td>{{ key }}</td>
         <td><code>{{ value.type|e }}</code></td>
-        <td>{{ value.desc }}</td>
+        <td>{% if value.desc %}{{ value.desc }}{%endif%}</td>
         <td>{% if value.default %}{{ value.default }}{% else %}<i>Required</i>{%endif%}</td>
     </tr>
     {% endfor %}

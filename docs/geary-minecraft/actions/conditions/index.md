@@ -1,9 +1,11 @@
 ---
-template: conditions-list.html
+template: page-list.html
+filter: "geary-minecraft/actions/conditions/"
 ---
 
 # Conditions
 
-Conditions specify when a skill can run. The `conditions` tag on a skill will run conditions in order. If all pass, the actions and subskills on the skill run. If any fail, the skills defined in `onFail` will run.
+Conditions are checks performed before running actions. They can be used across various configs, including the action system and spawning system.
 
+## Available conditions
 

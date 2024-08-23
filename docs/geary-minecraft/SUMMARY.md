@@ -1,3 +1,3 @@
-- [Actions](actions/)
+- [Action System](actions/)
 - [Items](items/)
 - [Developers](developers/)

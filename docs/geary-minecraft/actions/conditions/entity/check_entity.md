@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: "check.entity"
 type: Entity
 desc: Checks many conditions about a Minecraft entity, ex onGround, jumping, inWater...

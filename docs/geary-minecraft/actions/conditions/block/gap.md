@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: "gap"
 type: Block
 desc: Checks the size of the vertical air gap around this block

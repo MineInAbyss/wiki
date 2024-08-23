@@ -1,5 +1,5 @@
 ---
-template: condition.html
+template: configurable.html
 title: cooldownsComplete
 type: Entity
 desc: Checks whether entity has no cooldowns specified by name
