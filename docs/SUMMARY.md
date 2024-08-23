@@ -4,4 +4,4 @@
 - [Geary](geary/)
 - [Geary for Minecraft](geary-minecraft/)
 - [Idofront](idofront/)
-- [Plugins](other-plugins/)
+- [Other](other-plugins/)

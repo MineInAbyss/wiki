@@ -1,4 +1,3 @@
-- [Config](config/)
-- [Mobs](mobs/)
+- [Actions](actions/)
 - [Items](items/)
 - [Developers](developers/)

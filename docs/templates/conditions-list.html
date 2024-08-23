@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+{{ page.content }}
+
+<table>
+    <thead>
+        <tr>
+            <th>Condition</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for page in nav.pages|sort(attribute='title') %}
+    {% if page.url.startswith("geary-minecraft/actions/conditions/") and page.meta.desc %}
+    <tr>
+        <td><a href="/{{ page.url }}">{{ page.title }}</a></td>
+        <td><code>{{ page.meta.type }}</code></td>
+        <td>{{ page.meta.desc }}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
