@@ -1,6 +1,7 @@
 ---
 template: page-list.html
 filter: geary-minecraft/actions/actions/
+headers: [ Action, Type, Description ]
 ---
 
 # Actions

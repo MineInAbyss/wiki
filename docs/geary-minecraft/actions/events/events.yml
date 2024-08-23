@@ -1,19 +1,20 @@
-- Name: "`on.damaged`"
-  Desc: Entity is damaged by another entity
-  Extra targets: "`damager`"
+- Name: onDamaged
+  Desc: Entity was damaged by another entity
 
-- Name: "`on.damageOther`"
-  Desc: Entity damages another entity
-  Extra targets: null
+- Name: onDamageOther
+  Desc: Entity damaged another entity
 
-- Name: "`on.death`"
-  Desc: Entity dies
-  Extra targets: null
+- Name: onSheared
+  Desc: Entity got sheared
 
-- Name: "`on.sheared`"
-  Desc: Entity gets sheared
-  Extra targets: null
+- Name: onSpawn
+  Desc: Entity spawned (for the first time)
 
-- Name: "`on.spawn`"
-  Desc: Entity spawned
-  Extra targets: null
+- Name: onDeath
+  Desc: Entity died
+
+- Name: onLoad
+  Desc: Entity was loaded (i.e. from spawn or chunk load)
+
+- Name: onUnload
+  Desc: Entity was unloaded from a chunk

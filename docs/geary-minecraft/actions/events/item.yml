@@ -1,15 +1,26 @@
-- Name: "`on.itemLeftClick`"
-  Desc: Item got left clicked by its holder
-  Extra targets: "`itemHolder`"
+- Name: itemInteract
+  Desc: Item interacts with something
 
-- Name: "`on.itemRightClick`"
-  Desc: Item got right clicked by its holder
-  Extra targets: "`itemHolder`"
+- Name: itemLeftClick
+  Desc: Item left clicked air or block
 
-- Name: "`on.itemBreak`"
-  Desc: Item broke from durability loss
-  Extra targets: null
+- Name: itemLeftClickBlock
+  Desc: Item left clicked a block
 
-- Name: "`on.itemConsumed`"
-  Desc: Item got consumed by a player
-  Extra targets: "`consumer`"
+- Name: itemRightClick
+  Desc: Item right clicked air or block
+
+- Name: itemRightClickBlock
+  Desc: Item right clicked a block
+
+- Name: itemRightClickEntity
+  Desc: Item right clicked an entity
+
+- Name: itemConsumed
+  Desc: Item was consumed, ex. eaten or drunk
+
+- Name: itemBreak
+  Desc: Item broke from low durability
+
+- Name: itemDrop
+  Desc: Item was dropped by a player

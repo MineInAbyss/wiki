@@ -6,11 +6,11 @@
 
 <table>
     <thead>
-        <tr>
-            <th>Condition</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
+    <tr>
+        {% for header in page.meta.headers %}
+        <th>{{ header }}</th>
+        {% endfor %}
+    </tr>
     </thead>
     <tbody>
     {% for entry in nav.pages|sort(attribute='title') %}

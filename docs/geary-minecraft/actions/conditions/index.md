@@ -1,6 +1,7 @@
 ---
 template: page-list.html
 filter: "geary-minecraft/actions/conditions/"
+headers: [ Condition, Type, Description ]
 ---
 
 # Conditions
