@@ -20,17 +20,13 @@ dependencies {
 
 ## Initialize Geary
 
-!!! note 
-    Currently, we use global dependency injection, so only one instance of the engine can exist at a time, but it may be reset using `DI.clear()`. This will be revamped once Kotlin stabilizes context receivers.
-
-Geary provides a helper DSL to get set up, choose an engine implementation, and install your chosen addons. 
+Geary provides a helper DSL to get set up, choose an engine implementation, and install your chosen addons.
 
 ```kotlin
-geary(ArchetypeEngineModule) {
+geary(ArchetypeEngineModule()) {
 
     // Install addons without configuration
-
-    install(FileSystemAddon, FileSystem.SYSTEM)
+    
     install(UUIDTracking)
 
     // Some addons provide their own DSL. It will install the addon if it's not already installed
@@ -46,17 +42,8 @@ geary(ArchetypeEngineModule) {
     autoscan(classLoader, "com.mineinabyss.geary") {
         components()
     }
-
-    // Run custom logic on different load phases
-
-    on(GearyPhase.INIT_SYSTEMS) {
-        // custom logic to add your systems
-    }
-
-    on(GearyPhase.ENABLE) {
-        println("Everything is done loading!")
-    }
-}
+}.start()
+// Optionally delay calling start so other parts of the code can call .configure for extra configuration
 ```
 
 Both the engine module, and addons define all the data that needs to be implemented, and install logic in a `companion object`. Some provide a default module, but it can always be extended to change implementation details as needed.
@@ -65,17 +52,4 @@ The engine will be started as soon as the DSL block ends, but this behaviour can
 
 ## Testing
 
-Geary provides a testing module which does not start any pipeline tasks automatically and has some extra options.
-
-```kotlin
-// Simple use
-geary(TestEngineModule)
-
-// Configure some options for tests
-geary(TestEngineModule, TestEngineModule(
-    reuseIDsAfterRemoval = false
-))
-
-// Reset everything for a new test
-DI.clear()
-```
+Geary provides a testing module which does not start any pipeline tasks automatically. You can also extend `GearyTest` from the `geary-test` module to have an isolated world created per test.

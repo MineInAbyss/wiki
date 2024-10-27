@@ -1,6 +1,6 @@
 - [Home](index.md)
     - [Contributing](contributing/)
-- [Dev Notes](dev/)
+    - [Dev resources](dev/)
 - [Geary](geary/)
 - [Geary for Minecraft](geary-minecraft/)
 - [Idofront](idofront/)

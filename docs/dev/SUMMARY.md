@@ -1,6 +1,5 @@
 - [Version List](version-list.md)
 - [Build matrix](build-matrix.md)
-- [Dev](index.md)
 - [Conventions](conventions/)
 - [Setup](setup/)
 - [Dependencies](deps/)

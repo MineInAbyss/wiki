@@ -18,10 +18,6 @@
     margin: 1.1em 0 0.8em !important;
 }
 
-.md-grid {
-    max-width: 1440px;
-}
-
 .md-typeset td:not([class]):not(:last-child) {
     border-right: 1px solid var(--md-code-bg-color);
 }

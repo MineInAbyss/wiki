@@ -5,9 +5,9 @@ hide:
 - title
 ---
 
-# Mine in Abyss Wiki
+# Welcome
 
-Welcome to the Mine in Abyss Wiki. We keep documentation and setup instructions for our coding projects here!
+Welcome to the Mine in Abyss developer docs. We keep documentation and setup instructions for our coding projects here!
 We have different projects listed on top, as well as ongoing documentation for devs working on our projects.
 
 [About Mine in Abyss](https://mineinabyss.com){ .md-button .md-button--primary }

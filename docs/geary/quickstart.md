@@ -8,13 +8,27 @@ This page gives an overview of Geary's syntax and features, the rest of the guid
 ## Setup
 
 ```kotlin
-geary(ArchetypeEngineModule) {
+// Create an isolated engine world
+val world: Geary = geary(ArchetypeEngineModule()) {
     // install wanted addons here
+}.start()
+
+// Functions can use the world as a receiver
+fun Geary.doSomething() {
+    entity {
+        set(Position(0, 0))
+        // ...
+    }
 }
+
+// Rest of the guide happens in this context
+with(world) { 
+    doSomething()
+}
+
 ```
 
-- Geary currently creates one global instance, support for 'worlds' with separate entities coming later
-- Most of Geary is prepared for Kotlin multiplatform but currently only the JVM target is fully implemented
+!!! info "Most of Geary is prepared for Kotlin multiplatform but currently only the JVM target is fully implemented."
 
 ## Define components
 
@@ -60,19 +74,19 @@ val exampleEntity = entity {
 ```kotlin
 exampleEntity.apply {
     get<Position>() // return type is Position? (in this case, Position(1, 0))
-    get<Alive> // return type is Alive? (in this case, null)
-    has<Alive> // returns true since we added earlier
-    has<Velocity> // returns false since we removed the component
+    get<Alive>() // return type is Alive? (in this case, null)
+    has<Alive>() // returns true since we added earlier
+    has<Velocity>() // returns false since we removed the component
 }
 ```
 
 ## Queries
 
-Queries match entities based on their components, they can be used to read or modify data. A query can be iterated in-place (coming soon) or cached for faster performance at the cost of memory usage.
+Queries match entities based on their components, they can be used to read or modify data.
 
 ### Creating queries
 
-Queries always extend the `Query` class and filter using delegates. Geary provides shorthands to define them more easily.
+Queries always extend the `Query` class and filter using delegates.
 
 ```kotlin
 // A manually defined query matching entities with both Position and Velocity components
@@ -86,18 +100,29 @@ object: Query() {
     var position by get<Position>()
     val velocity by get<Velocity>()
 }
+```
 
+#### Shorthands
+
+Geary provides some helper functions to define queries more concisely.
+
+```kotlin
 // A shorthand to define read-only queries inline
 query<Position, Velocity>()
 
-// Note: These will eventually support nullable types for optional components
+// These also support nullable types for optional components
+query<Position?, Velocity>()
 ```
 
 ### Iterating queries
 
+Queries can be run in-place (ex. when querying for dynamic information like children of an entity) or cached for faster performance.
+
+#### Cached queries
+
 ```kotlin
 // Cache the query for fast matching
-val query = geary.cache(MyQuery())
+val query = cache(MyQuery())
 
 // get all entities with both position and velocity components
 val matchedEntities: List<Entity> = query.entities()
@@ -113,12 +138,23 @@ query.forEach {
 }
 
 // Shorthand queries can be destructured for convenience
-geary.cache(query<Position, Velocity>()).forEach { (position, velocity) ->
+cache(query<Position, Velocity>()).forEach { (position, velocity) ->
     println("Position: $position, Velocity: $velocity")
 }
 ```
 
 - Collecting to a list is much slower than iterating directly with forEach since memory needs to be allocated for the list.
+
+#### In-place queries
+
+In-place queries aren't implemented yet, however matching entities can be done using `findEntities`
+```kotlin
+// Get entities matching a family
+findEntities { has<Position>(); has<Velocity>(); }
+
+// Get entities matching a query
+findEntities(query<Position, Velocity>())
+```
 
 ### Ensure block
 
@@ -135,8 +171,8 @@ object: Query() {
 Systems are cached queries with an `exec` block attached, they can also be repeating.
 
 ```kotlin
-// We define a function to create our system, note we use GearyModule as an extension to pollute tab-completions less
-fun GearyModule.createVelocitySystem() = system(object: Query() {
+// We define a function to create our system, note the receiver used to have access to the world context.
+fun Geary.createVelocitySystem() = system(object: Query() {
     val position by get<Position>()
     val velocity by get<Velocity>()
 }).exec {
@@ -145,19 +181,19 @@ fun GearyModule.createVelocitySystem() = system(object: Query() {
 }
 
 // Run exec on all entities matching the query
-geary.createVelocitySystem().tick()
+world.createVelocitySystem().tick()
 ```
 
 ### Repeating systems
 
 ```kotlin
 // We prefer defining systems in functions
-fun GearyModule.createVelocitySystem() = system(object: Query() { ... })
+fun Geary.createVelocitySystem() = system(object: Query() { ... })
     .every(1.seconds) // Duration used to calculate every n engine ticks the system should exec
     .exec { ... }
 
-geary.createVelocitySystem()
-geary.tick() // ticks all registered repeating systems
+world.createVelocitySystem()
+world.tick() // ticks all registered repeating systems
 ```
 
 ### Deferred systems
@@ -165,7 +201,7 @@ geary.tick() // ticks all registered repeating systems
 Systems cannot safely or quickly perform entity type modifications (i.e. component add or remove calls, we can only modify already set data, and even this can't call component modify events). Instead, we can iterate over all matched entities, gather data, and then perform modifications once system iteration completes:
 
 ```kotlin
-fun GearyModule.createDeferredSystem() = system(object : Query() {
+fun Geary.createDeferredSystem() = system(object : Query() {
     val string by get<String>()
 }).defer {
     // This could be a heavier calculation that benefits from memory being close together!
@@ -186,7 +222,7 @@ Observers listen to events emitted on entities. Geary comes with some built in e
 ### Simple observer
 
 ```kotlin
-geary.observe<OnEntityRemove>().exec {
+observe<OnEntityRemove>().exec {
     println("Entity removed")
 }
 val entity = entity()
@@ -198,7 +234,7 @@ entity.removeEntity() // Prints "Entity removed"
 Certain events like `OnSet` involve a component. Observers may check for a single involved component, or any in a list, or not restrict at all.
 
 ```kotlin
-geary.observe<OnSet>().involving<Position, Velocity>().exec {
+observe<OnSet>().involving<Position, Velocity>().exec {
     println("Either position or velocity set!")
 }
 // Equivalent to involving(entityTypeOf(componentId<Position>, componentId<Velocity>()))
@@ -215,7 +251,7 @@ entity.set(UnrelatedComponent()) // Does nothing
 We can also filter to match a query, this is useful for reading data off entities in an event or reacting to several components being set.
 
 ```kotlin
-geary.observe<OnSet>()
+observe<OnSet>()
     .involving<Position, Velocity>()
     .exec(query<Position, Velocity>()) { (position, velocity) ->
         println("Position: $position, Velocity: $velocity")
@@ -241,10 +277,10 @@ class MyEvent(val data: String)
 
 val entity = entity()
 
-geary.observe<MyEvent>().exec {
+observe<MyEvent>().exec {
     println("Observe without data")
 }
-geary.observeWithData<MyEvent>().exec {
+observeWithData<MyEvent>().exec {
     println("Observe with data: ${event.data}")
 }
 
