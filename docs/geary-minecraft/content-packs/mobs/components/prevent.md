@@ -1,8 +1,4 @@
-Components that override vanilla behaviour, provided by Mobzy. Most of these will listen to events and cancel them.
-
-```yaml
-namespaces: [ mobzy ]
-```
+Components that override vanilla behaviour, most of these will listen to events and cancel them.
 
 ## Any entity
 

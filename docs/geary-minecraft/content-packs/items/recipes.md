@@ -1,12 +1,6 @@
-Looty provides an extensive recipe system for custom items, import it as below:
-
-```yaml
-namespaces: [ looty ]
-```
+Geary provides an extensive recipe system for custom or vanilla items.
 
 ## Create recipes
-
-### Set recipes
 
 Create any kind of recipe for an item, all types listed below.
 
@@ -15,7 +9,7 @@ If the recipe is defined in the item prefab itself, `result` does not need to be
 ```yaml
 set.recipes:
   recipes: # (1)!
-    - !<shaped>
+    - type: shaped
       ...
   discoverRecipes: true # (2)!
   group: "" # (3)!
@@ -50,7 +44,7 @@ set.potionMixes:
 Uses keys to define [[Serializable Item]]s as ingredients. These keys can be used to describe a configuration as below
 
 ```yaml
-- !<shaped>
+- type: shaped
   items:
     M: { type: gold_ingot }
     S: { type: stick }
@@ -73,7 +67,7 @@ configuration: |-
 Takes a list of [[Serializable Item]]s as ingredients, they may be placed in any shape.
 
 ```yaml
-- !<shapeless>
+- type: shapeless
   items:
     - type: gold_ingot
     - prefab: myplugin:custom_item
@@ -85,7 +79,7 @@ There are several options for cooking recipes,
 `furance`, `blasting`, `campfire`, `smoker`. The input is a [[Serializable Item]] that will be consumed.
 
 ```yaml
-- !<furnace>
+- type: furnace
   input: { prefab: mineinabyss:ashimite_meat_raw }
   experience: 1f
   cookingTime: 100
@@ -96,7 +90,7 @@ There are several options for cooking recipes,
 Input is a [[Serializable Item]] that will be consumed by the stonecutter.
 
 ```yaml
-- !<stonecutting>
+- type: stonecutting
   input: { type: stone }
 ```
 
@@ -106,7 +100,7 @@ Input is a [[Serializable Item]] that will be consumed by the stonecutter.
 All inputs are [[Serializable Item]]. template, input, addition are ordered left to right in the smithing table. Ex. we have a template for a custom netherite upgrade:
 
 ```yaml
-- !<smithing_transform>
+- type: smithing_transform
   template: { type: netherite_upgrade_smithing_template }
   input: { prefab: mineinabyss:diamond_sickle }
   addition: { type: netherite_ingot }
@@ -119,7 +113,7 @@ All inputs are [[Serializable Item]]. template, input, addition are ordered left
 All entries are [[Serializable Item]]s, the input is the potion being brewed, and ingredient is the ingredient being added on top. If input is not specified, will use a water bottle.
 
 ```yaml
-- !<potionmix>
+- type: potionmix
   input: ...
   ingredient: { type: sugar }
 ```

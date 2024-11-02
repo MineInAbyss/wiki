@@ -21,3 +21,7 @@
 .md-typeset td:not([class]):not(:last-child) {
     border-right: 1px solid var(--md-code-bg-color);
 }
+
+.md-grid {
+    max-width: 1600px;
+}

@@ -1,9 +1,5 @@
 Components that replace vanilla behaviour with custom ones, often reimplemented by us.
 
-```yaml
-namespaces: [ mobzy ]
-```
-
 ## Any mob
 
 ### Death Loot

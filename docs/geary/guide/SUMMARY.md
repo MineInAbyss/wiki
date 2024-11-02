@@ -1,4 +1,5 @@
 - [Setup](setup.md)
+- [Addons](addons.md)
 - [Entities](entities.md)
 - [Designing Components](designing-components.md)
 - [Relations](relations.md)

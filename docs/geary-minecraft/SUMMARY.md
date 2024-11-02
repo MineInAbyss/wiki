@@ -1,4 +1,3 @@
-- [Action System](actions/)
-- [Items](items/)
-- [Spawning](spawning/)
-- [Developers](developers/)
+- [Content packs](content-packs/)
+- [Actions & Observers](actions/)
+- [Plugin Developers](developers/)

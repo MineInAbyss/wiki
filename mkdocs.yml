@@ -8,6 +8,7 @@ theme:
   features:
     - navigation.instant
     - navigation.tabs
+    - toc.follow
     - content.code.annotate
     - content.code.copy
     - content.tabs.link
@@ -54,6 +55,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
+  - pymdownx.blocks.caption
 plugins:
   - literate-nav:
       nav_file: SUMMARY.md

@@ -1,6 +1,6 @@
 # Setup
 
-## Gradle
+Add geary-papermc to your gradle project:
 
 ```kotlin
 repositories {
@@ -17,29 +17,38 @@ dependencies {
 
 
 ## Initialize your plugin
-The Geary plugin initializes Geary with some useful addons. Read the [general setup guide](/geary/guide/setup) for more info.
+The Geary-papermc plugin initializes Geary with some useful addons like prefabs and serialization. Other plugins can further configure Geary with their own addons on server startup. Learn more about creating configurable addons [here](../../geary/guide/addons.md)
 
-The engine will start after the first server tick, which gives plugins time to install and configure their own addons in `onEnable()` like so:
+Create a Geary addon anywhere in your code, we recommend a top level variable:
 
 ```kotlin
-geary {
+val MyCustomAddon = createAddon<Unit>("My plugin", configuration = {
+    // Install and configure any other addons you like here
     autoscan(classLoader, "my.plugin.package") {
         // Register all serializable classes for use in prefabs/persisting data
         components()
-        
-        // Automatically add systems with @AutoScan
-        all()
+    }
+    install(SomeOtherAddon)
+}) {
+    // Use this block for logic that should run after everything is configured,
+    // this includes registering system, creating any custom entities, or startup logic
+    
+    systems {
+        yourSystemHere()
     }
     
-    // Alternatively
-    on(GearyPhase.INIT_SYSTEMS) {
-        geary.pipeline.addSystems(
-            // Your systems here
-        )
-    }
-
-    on(GearyPhase.ENABLE) {
+    onStart {
         // Your startup logic
+    }
+}
+```
+
+Install your addon in your plugin's `onLoad()` function like so:
+
+```kotlin
+override fun onLoad() {
+    gearyPaper.configure {
+        install(MyCustomAddon)
     }
 }
 ```

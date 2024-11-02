@@ -1,57 +1,51 @@
-# Prefabs
+Geary uses prefabs to define custom mob, item, or block types. These are just entities with a unique key, which we use to persist information ingame. For instance, items and mobs store a prefab key in their persistent data container, and blocks let you directly access a prefab based on their blockdata.
 
-Geary will load entities from supported formats (currently `yml`) inside `plugins/Geary/<namespace>/.../prefabname.yml`
+Geary will automatically load prefabs under `plugins/Geary/<namespace>/...`. However, you may want your configs to be kept in your own plugin folder instead, or package them directly with your jar file. For this, use the `Prefabs` addon as shown below.
 
-It's also possible to load manually using `prefabs.loader.loadFromPath()` and add new formats in the addon dsl and an implementation of the `Format` class:
+## Load prefabs from code
+
+You may create prefabs from arbitrary entities, the prefabs addon provides some helper functions for this:
 
 ```kotlin
-geary {
-    serialization {
-        format("json") { module -> ... }
+namespace("my_namespace") {
+    prefabs {
+        create(
+            // creates prefab with key my_namespace:name
+            "name" to geary.entity {
+                set(MyCustomData())
+            },
+            ...
+        )
     }
 }
 ```
 
-## Configuring prefabs
+## Load prefabs from your jar resources
 
-Geary comes with `geary:set.entity_type` and `geary:set.item` components which allow a prefab to be instantiated. Here are example config files:
-
-!!! tip
-    We have plugins that provide many extra components to help you configure prefabs, see our [Readme on GitHub](https://github.com/MineInAbyss/Geary-papermc#plugins-using-geary)
-
-### Mobs
-```yaml
-- !<geary:set.entity_type>
-  key: minecraft:iron_golem
-```
-
-### Items
-
-
-#### Player-instanced items
-
-Items with one prefab that has a `geary:player_instanced_item` component will get one instance created per player. This instance won't be removed until all items of that instance are removed from the inventory
-
-#### Example
-```yaml
-- !<geary:player_instanced_item>
-- !<geary:set.item>
-  item:
-    type: PAPER
-    displayName: Chiseled Bookshelf Empty
-    customModelData: 2032
-```
-
-
-## Instantiation in code
+Plugins can load prefabs from their jar's resources
 
 ```kotlin
-val prefabKey: PrefabKey
+namespace("my_namespace") {
+    prefabs {
+        // We pass a reference to our plugin class to use the correct classLoader
+        fromJarResources(MyPlugin::class, "prefab1.yml", "folder/prefab2.yml")
 
-// Mobs
-val location: Location
-location.spawnFromPrefab(prefabKey)
+        // You can also load all prefabs inside a folder, including subfolders
+        fromJarResourceDirectory(MyPlugin::class, "prefabs")
+    }
+}
+```
 
-// Items
-val itemStack = itemTracking.provider.serializePrefabToItemStack(prefabKey)
+## Load prefabs from files
+
+```kotlin
+namespace("my_namespace") {
+    prefabs {
+        // Load specific prefab files
+        fromFiles(dataFolder.toPath() / "my-prefab.yml", ...)
+        
+        // Load all prefabs in a folder on the filesystem
+        fromDirectory(dataFolder.toPath() / "prefabs")
+    }
+}
 ```

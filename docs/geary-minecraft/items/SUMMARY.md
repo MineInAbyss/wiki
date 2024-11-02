@@ -1,3 +1,0 @@
-- [Item Type](index.md)
-- [Serializable Item](serializable-item.md)
-- *.md

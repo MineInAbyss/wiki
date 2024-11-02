@@ -1,0 +1,4 @@
+- [Creating items](index.md)
+- [Resourcepack](resourcepack.md)
+- [Custom recipes](recipes.md)
+- [Serializable Item](serializable-item.md)
