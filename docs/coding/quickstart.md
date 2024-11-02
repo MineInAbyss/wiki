@@ -2,10 +2,13 @@
 
 Let's set up a local server and dev environment. If you're new to programming, continue with the guide on the sidebar and come back here afterward!
 
+!!! note
+    If you wish to contribute with other aspects of the project, such as art, design, or building, check out [mineinabyss.com/contributing](https://mineinabyss.com/contributing).
+
 ## IDE
 
 - Install [:simple-intellijidea: IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
-- Install a Java 17 JDK, most easily via IntelliJ using `Ctrl+Alt+Shift+S`, then clicking the dropdown in project settings.
+- Install a Java 21 JDK, most easily via IntelliJ using `Ctrl+Alt+Shift+S`, then clicking the dropdown in project settings.
 - Set your server plugin path in `~/.gradle/gradle.properties` (see [Configuring gradle](#configuring-gradle) below), we also recommend some other settings for better performance.
 - Build the project with gradle (see [Building a project](#building-a-project) below).
 - Our [composite-projects](https://github.com/MineInAbyss/composite-projects) repo can be useful for working on multiple projects at once, or just clone the repos you need.
@@ -13,9 +16,9 @@ Let's set up a local server and dev environment. If you're new to programming, c
 ## Server
 
 - Install Docker, follow [:simple-docker: Docker's install guide](https://docs.docker.com/get-docker/).
-- Create a server directory, we use `/opt/docker/data/minecraft` internally.
-- Make a file named `docker-compose.yml` and paste a config from below.
-- Server config and plugins will be downloaded automatically using Keepup, if you build any plugins locally, they'll override the downloaded ones!
+- Create a server directory and enter it.
+- Make a file named `docker-compose.yml` and paste the config from below.
+- Server config and plugins will be downloaded automatically using Keepup, if you build any plugins locally, Keepup will use yours instead.
 - You can create a `.env` file in the same directory to pass secrets (ex. to download our mob models)
 
 === "Simple server"
@@ -35,7 +38,7 @@ Let's set up a local server and dev environment. If you're new to programming, c
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) for a GUI to manage your containers.
 - Run `docker-compose up -d` in the directory of your `docker-compose.yml` to start the server in the background.
 - Some IDEs like VSCode or Intellij let you manage Docker containers too, it may be convenient to open your entire minecraft folder to be able to modify the compose file and see local configs.
-- Join in Minecraft as `localhost`
+- Connect to `localhost` in Minecraft to join the server.
 - Op yourself by attaching to your container (`a` in lazydocker) or `docker attach mineinabyss`.
 
 ## Extras
@@ -57,7 +60,7 @@ paperweight.experimental.sharedCaches=true
 
 You do not need to install anything to build. You can do it from command line or IntelliJ (running builds through IntelliJ will be more convenient)
 
-=== ":simple-windows: Windows"
+=== ":fontawesome-brands-windows: Windows"
     ```shell
     cd <insert project directory here>
     gradlew.bat build
@@ -79,12 +82,3 @@ You do not need to install anything to build. You can do it from command line or
 
 - If you need BBModels or other private assets see [[Private Assets]], or test on the dev server. You might be ratelimited by GitHub when downloading plugins, the page also explains how to set up your own token for it.
 - If you need access to internal services like browsing files or restarting containers/seeing dev logs, let us know in Discord, you will be added to a team on GitHub.
-
-### Podman
-
-Podman is a Docker alternative that's sometimes easier to set up and can run our docker-compose file! Here are some tips to get it running:
-
-- `pipx install podman-compose` to install podman-compose.
-- `sudo podman-compose up -d` to start the server in the background.
-- Placing `PODMAN_USERNS=keep-id` in your `.env` lets you run the server as your own user, be sure to append `:z` to any volume mounts in your compose file to avoid issues with SELinux.
-- [Pods](https://flathub.org/apps/com.github.marhkb.Pods) is a nice UI for managing your containers.

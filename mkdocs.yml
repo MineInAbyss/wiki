@@ -15,7 +15,7 @@ theme:
     - navigation.footer
     - content.action.edit
   font:
-    text: Inter
+    text: Roboto
     code: JetBrains Mono
   name: material
   palette:

@@ -1,7 +1,5 @@
 # Coding conventions
 
-## Code style guide
-
 We follow the [Android Kotlin Style Guide](https://developer.android.com/kotlin/style-guide).
 
 IntelliJ has an autoformatter that follows this style guide, use `Ctrl+Alt+L` to run it. If the formatter makes no changes, your code style is good to go.

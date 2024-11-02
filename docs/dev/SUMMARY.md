@@ -1,6 +1,0 @@
-- [Version List](version-list.md)
-- [Build matrix](build-matrix.md)
-- [Conventions](conventions/)
-- [Setup](setup/)
-- [Dependencies](deps/)
-- [Server management](server-management/)
