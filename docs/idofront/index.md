@@ -4,4 +4,13 @@
 
 Idofront is a set of modules we share between plugins. It includes helpful Minecraft extensions, gradle conventions, and more.
 
-It is meant to be included in your plugins using the [Gradle Shadow Plugin](https://imperceptiblethoughts.com/shadow/). Apply the plugin and install the libraries you want by adding them as `implementation`s. You may include only what you want to use, we split everything into separate modules!
+To use it in your plugins see the GitHub page for depending on Idofront in your project, download the latest jar and include it in your `paper-plugin.yml`:
+
+```yaml
+dependencies:
+  server:
+    Idofront:
+      required: true
+      load: BEFORE
+      join-classpath: true
+```
