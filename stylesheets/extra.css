@@ -1,0 +1,27 @@
+[data-md-color-scheme="slate"] {
+    --md-hue: 350;
+}
+
+.md-typeset h1 {
+    margin: 0 !important;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--md-code-bg-color);
+}
+
+.md-typeset h2 {
+    margin: 1.4em 0 0.2em !important;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--md-code-bg-color);
+}
+
+.md-typeset h3 {
+    margin: 1.1em 0 0.8em !important;
+}
+
+.md-typeset td:not([class]):not(:last-child) {
+    border-right: 1px solid var(--md-code-bg-color);
+}
+
+.md-grid {
+    max-width: 1600px;
+}
