@@ -19,7 +19,7 @@ Welcome to the Mine in Abyss developer docs. We keep documentation for our major
 Anyone interested in contributing can visit our [Outline page](https://outline.mineinabyss.com/s/coding/) for guides, conventions, and more!
 
 [About Mine in Abyss](https://mineinabyss.com){ .md-button .md-button--primary }
-[I want to contribute](https://outline.mineinabyss.com/s/coding/){ .md-button }
+[I want to contribute](https://mineinabyss.com/contributing){ .md-button }
 
 ## FAQ
 
