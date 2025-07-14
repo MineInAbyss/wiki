@@ -1,0 +1,30 @@
+- Name: "`MineInAbyss`"
+  Release: "[![](https://img.shields.io/github/v/release/MineInAbyss/MineInAbyss)](https://github.com/MineInAbyss/MineInAbyss/releases/)"
+  Prod: "[![Publish](https://github.com/MineInAbyss/MineInAbyss/actions/workflows/publish.yml/badge.svg)](https://github.com/MineInAbyss/MineInAbyss/actions/workflows/publish.yml)"
+  Develop: "[![Publish](https://github.com/MineInAbyss/MineInAbyss/actions/workflows/publish.yml/badge.svg?branch=develop)](https://github.com/MineInAbyss/MineInAbyss/actions/workflows/publish.yml)"
+
+- Name: "`Geary`"
+  Release: "[![](https://img.shields.io/github/v/release/MineInAbyss/geary)](https://github.com/MineInAbyss/geary/releases/)"
+  Prod: "[![Publish Packages](https://github.com/MineInAbyss/geary/actions/workflows/publish-packages.yml/badge.svg)](https://github.com/MineInAbyss/geary/actions/workflows/publish-packages.yml)"
+  Develop: "[![Publish Packages](https://github.com/MineInAbyss/geary/actions/workflows/publish-packages.yml/badge.svg?branch=develop)](https://github.com/MineInAbyss/geary/actions/workflows/publish-packages.yml)"
+
+- Name: "`Geary-papermc`"
+  Release: "[![](https://img.shields.io/github/v/release/MineInAbyss/geary-papermc)](https://github.com/MineInAbyss/geary-papermc/releases/)"
+  Prod: "[![Publish](https://github.com/MineInAbyss/geary-papermc/actions/workflows/publish.yml/badge.svg)](https://github.com/MineInAbyss/geary-papermc/actions/workflows/publish.yml)"
+  Develop: "[![Publish](https://github.com/MineInAbyss/geary-papermc/actions/workflows/publish.yml/badge.svg?branch=develop)](https://github.com/MineInAbyss/geary-papermc/actions/workflows/publish.yml)"
+
+- Name: "`Mobzy`"
+  Release: "[![](https://img.shields.io/github/v/release/MineInAbyss/Mobzy)](https://github.com/MineInAbyss/Mobzy/releases/)"
+  Prod: "[![Publish Packages](https://github.com/MineInAbyss/Mobzy/actions/workflows/publish.yml/badge.svg)](https://github.com/MineInAbyss/Mobzy/actions/workflows/publish.yml)"
+  Develop: "[![Publish Packages](https://github.com/MineInAbyss/Mobzy/actions/workflows/publish.yml/badge.svg?branch=develop)](https://github.com/MineInAbyss/Mobzy/actions/workflows/publish.yml)"
+
+- Name: "`Looty`"
+  Release: "[![](https://img.shields.io/github/v/release/MineInAbyss/Looty)](https://github.com/MineInAbyss/Looty/releases/)"
+  Prod: "[![Publish](https://github.com/MineInAbyss/Looty/actions/workflows/publish.yml/badge.svg)](https://github.com/MineInAbyss/Looty/actions/workflows/publish.yml)"
+  Develop: "[![Publish](https://github.com/MineInAbyss/Looty/actions/workflows/publish.yml/badge.svg?branch=develop)](https://github.com/MineInAbyss/Looty/actions/workflows/publish.yml)"
+
+- Name: "`Blocky`"
+  Release: "[![](https://img.shields.io/github/v/release/MineInAbyss/Blocky)](https://github.com/MineInAbyss/Blocky/releases/)"
+  Prod: "[![Publish](https://github.com/MineInAbyss/Blocky/actions/workflows/publish.yml/badge.svg)](https://github.com/MineInAbyss/Blocky/actions/workflows/publish.yml)"
+  Develop: "[![Publish](https://github.com/MineInAbyss/Blocky/actions/workflows/publish.yml/badge.svg?branch=develop)](https://github.com/MineInAbyss/Blocky/actions/workflows/publish.yml)"
+
